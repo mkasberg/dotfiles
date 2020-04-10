@@ -45,12 +45,19 @@ snap install --classic heroku
 snap install spotify
 snap install bw
 
+# Google Chrome - manual download once
+if [ ! -e /usr/bin/google-chrome ]; then
+    echo ""
+    echo "You should manually install Google Chrome:"
+    echo "https://www.google.com/chrome/"
+    echo ""
+fi
+
 
 # Now, manually set up:
 # 
 # NodeJS: https://github.com/nvm-sh/nvm
 # Yarn: https://yarnpkg.com/en/
-# Chrome: https://www.google.com/chrome
 # Docker: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce
 # Docker-Compose: https://github.com/docker/compose/releases
 # VS Code: https://code.visualstudio.com/
