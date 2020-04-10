@@ -35,7 +35,7 @@ apt-get install \
     texlive \
     texlive-fonts-extra \
     ttf-mscorefonts-installer \
-    vim-gnome \
+    vim-gtk3 \
     vlc
 
 # Now, manually set up:
