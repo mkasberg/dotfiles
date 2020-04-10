@@ -16,6 +16,7 @@ apt-get install --no-install-recommends php
 # Install Applications with apt-get
 apt-get install \
     audacity \
+    build-essential \
     curl \
     default-jdk \
     filezilla \
@@ -24,6 +25,8 @@ apt-get install \
     gimp-plugin-registry \
     git \
     gitk \
+    libreadline-dev \
+    libssl-dev \
     markdown \
     meld \
     php-bcmath \
@@ -37,21 +40,14 @@ apt-get install \
     texlive-fonts-extra \
     ttf-mscorefonts-installer \
     vim-gtk3 \
-    vlc
+    vlc \
+    zlib1g-dev
 
 # Install snap packages
 snap install --classic intellij-idea-community
 snap install --classic heroku
 snap install spotify
 snap install bw
-
-# Google Chrome - manual download once
-if [ ! -e /usr/bin/google-chrome ]; then
-    echo ""
-    echo "You should manually install Google Chrome:"
-    echo "https://www.google.com/chrome/"
-    echo ""
-fi
 
 
 # Now, manually set up:
