@@ -43,6 +43,7 @@ apt-get install \
 snap install --classic intellij-idea-community
 snap install --classic heroku
 snap install spotify
+snap install bw
 
 
 # Now, manually set up:
