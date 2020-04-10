@@ -1,0 +1,36 @@
+[user]
+	name = Mike Kasberg
+	email = kasberg.mike@gmail.com
+[core]
+	# Use Notepad++
+	#editor = 'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession
+	# Use emacs, no window
+	#editor = emacs -nw
+	# Use Vim
+	editor = vi
+[color]
+	ui = auto
+[diff]
+	tool = meld
+[merge]
+	tool = meld
+	conflictstyle = diff3
+[mergetool "meld"]
+	path = /usr/bin/meld
+[push]
+	default = simple
+[rebase]
+	stat = true
+[branch]
+	autosetuprebase = always
+[alias]
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	pushfor = !sh -c 'git push origin HEAD:refs/for/$1' -
+	my-next = rev-list origin/master ^origin/master.rc --author=mkasberg@spotxchange.com --pretty
+	my-rc = rev-list origin/master.rc ^origin/master --author=mkasberg@spotxchange.com --pretty
+	my-master = rev-list origin/master --author=mkasberg@spotxchange.com --pretty --after=\"14 days ago\"
+	show-rc = rev-list origin/master.rc ^origin/master --pretty
+	show-next = rev-list origin/master ^origin/master.rc --pretty
+	type = cat-file -t
+	dump = cat-file -p
+

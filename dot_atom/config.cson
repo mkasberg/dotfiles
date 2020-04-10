@@ -1,0 +1,32 @@
+"*":
+  "autocomplete-plus":
+    fileBlacklist: [
+      "*.md"
+      "*.txt"
+    ]
+  core:
+    closeDeletedFileTabs: true
+    openEmptyEditorOnStart: false
+    projectHome: "/home/mkasberg/code"
+    restorePreviousWindowsOnStart: "no"
+    telemetryConsent: "limited"
+    themes: [
+      "atom-light-ui"
+      "atom-light-syntax"
+    ]
+  editor:
+    fontFamily: "Source Code Pro, Ubuntu Mono"
+    softWrap: true
+    tabLength: 4
+  "exception-reporting":
+    userId: "1374c8be-6918-079a-cdd6-572d5da718c0"
+  "markdown-writer":
+    fileExtension: ".md"
+  "php-debug":
+    AutoExpandLocals: true
+    GutterPosition: "Left"
+    currentPanelHeight: "294px"
+    currentPanelMode: "bottom"
+    showWelcome: false
+  welcome:
+    showOnStartup: false

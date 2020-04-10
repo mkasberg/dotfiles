@@ -1,0 +1,25 @@
+[diff]
+ignorews=true
+ignorewsamount=true
+ignoreblanklines=false
+
+[extdiff]
+cmd.difftool = meld
+
+[ui]
+username = Mike Kasberg <kasberg.mike@gmail.com>
+editor = vim
+
+[extensions]
+rebase= 
+color=
+pager=
+graphlog=
+churn=
+mq=
+convert=
+shelve=
+histedit=
+hgext.extdiff=
+hgk=
+

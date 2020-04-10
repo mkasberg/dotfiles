@@ -1,0 +1,32 @@
+" Mike's .vimrc
+
+" Use 4 spaces for a tab.
+set softtabstop=4 shiftwidth=4 expandtab
+
+" Use colors for a dark terminal background
+set background=dark
+
+" Search settings. Highlight and incremental.
+set hlsearch
+set incsearch
+
+" Enhanced tab completion
+set wildmenu
+
+" Git commit spellcheck, width
+autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype hgcommit setlocal spell textwidth=72
+
+" Markdown spellcheck, width
+autocmd Filetype markdown setlocal spell textwidth=80
+
+" Yaml tab size
+autocmd Filetype yaml setlocal softtabstop=2 shiftwidth=2
+
+" Log file syntax highlighting
+autocmd BufNewFile,BufReadPost *.log :set filetype=log norelativenumber nonumber
+
+" Show chars for tabs.
+set list
+set listchars=tab:␉·
+
