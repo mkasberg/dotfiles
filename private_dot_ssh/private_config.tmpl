@@ -1,0 +1,11 @@
+Host bitbucket.org
+ IdentityFile ~/.ssh/id_rsa
+
+Host ssh.phx.nearlyfreespeech.net
+ User {{ (bitwarden "item" "d0288e58-57d0-425f-9222-ab9901367767").notes }}
+ IdentityFile ~/.ssh/id_rsa
+
+Host catholicstuffpodcast.com
+ User {{ (bitwarden "item" "5bceb80e-b91a-40f5-98b6-ab9901369978").notes }}
+ IdentityFile ~/.ssh/id_rsa
+
