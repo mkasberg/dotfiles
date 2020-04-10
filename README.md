@@ -4,20 +4,31 @@ Managed with [chezmoi](https://www.chezmoi.io).
 
 ## Setup dotfiles on a new machine
 
-  1. Install chezmoi to `~/bin`.
+  1. Install Bitwarden (needed to decrypt secrets) and login.
+     ```
+     $ sudo snap install bw
+     $ bw login
+     ```
+
+  2. Install chezmoi to `~/bin`.
      ```
      $ curl -sfL https://git.io/chezmoi | sh
      ```
 
-  2. Check what will happen.
+  3. Initialize chezmoi. Use https since we don't have creds yet.
      ```
-     $ chezmoi diff
-     $ chezmoi -nv apply
-     ``` 
+     $ bin/chezmoi init https://github.com/mkasberg/dotfiles.git
+     ```
 
-  3. Install the dotfiles.
+  4. Install the dotfiles.
      ```
      $ chezmoi apply
+     ```
+
+  5. Fix the git origin in the chezmoi directory.
+     ```
+     $ chezmoi cd
+     $ git remote set-url origin git@github.com:mkasberg/dotfiles.git
      ```
 
 Done! To keep up to date in the future:
