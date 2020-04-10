@@ -22,3 +22,11 @@ else
     echo ""
 fi
 
+#NVM
+if [ ! -d ~/.nvm ]; then
+    echo ""
+    echo "NVM Not Found!"
+    echo "You should manually install NVM:"
+    echo "https://github.com/nvm-sh/nvm#installing-and-updating"
+    echo ""
+fi

@@ -52,7 +52,6 @@ snap install bw
 
 # Now, manually set up:
 # 
-# NodeJS: https://github.com/nvm-sh/nvm
 # Yarn: https://yarnpkg.com/en/
 # Docker: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce
 # Docker-Compose: https://github.com/docker/compose/releases
