@@ -23,6 +23,8 @@
 	stat = true
 [branch]
 	autosetuprebase = always
+[url "git@github.com:mkasberg/"]
+	insteadOf = https://github.com/mkasberg/
 [alias]
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	pushfor = !sh -c 'git push origin HEAD:refs/for/$1' -

@@ -15,20 +15,19 @@ Managed with [chezmoi](https://www.chezmoi.io).
      $ curl -sfL https://git.io/chezmoi | sh
      ```
 
-  3. Initialize chezmoi. Use https since we don't have creds yet.
+  3. Initialize chezmoi. Use `https` since we don't have creds yet.
      ```
      $ bin/chezmoi init https://github.com/mkasberg/dotfiles.git
      ```
 
-  4. Install the dotfiles.
+  4. (Optional) Check the diff.
      ```
-     $ chezmoi apply
+     $ chezmoi apply -nv
      ```
 
-  5. Fix the git origin in the chezmoi directory.
+  5. Install the dotfiles.
      ```
-     $ chezmoi cd
-     $ git remote set-url origin git@github.com:mkasberg/dotfiles.git
+     $ chezmoi apply
      ```
 
 Done! To keep up to date in the future:
