@@ -1,2 +1,5 @@
+{{ $email := promptString "email" -}}
 [merge]
   command = "meld"
+[data]
+  email = {{ $email }}

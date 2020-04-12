@@ -105,7 +105,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias fuck='sudo $(history -p \!\!)'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -118,6 +117,11 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+# Source Strava aliases & config if they exist
+if [ -f ~/.stravarc.bash ]; then
+    . ~/.stravarc.bash
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -135,6 +139,11 @@ fi
 # Trim the number of directories in PS1 \w:
 #export PROMPT_DIRTRIM=3
 
+# Add Go
+if [ -d "/usr/local/go/bin" ]; then
+    PATH="/usr/local/go/bin:$PATH"
+fi
+
 # NPM/Yarn User-installed Packages
 export PATH="$PATH:/home/mkasberg/.npm-packages/bin"
 
@@ -145,6 +154,18 @@ if [ -d "$HOME/.rbenv/bin" ]; then
 fi
 
 # NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [ -d "$HOME/.nvm" ]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+# Mike - OPTIONAL cd Alias for .nvmrc
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+cd() { builtin cd "$@"; 'load-nvmrc'; }

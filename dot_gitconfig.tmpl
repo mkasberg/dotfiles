@@ -1,6 +1,6 @@
 [user]
 	name = Mike Kasberg
-	email = kasberg.mike@gmail.com
+	email = {{ .email }}
 [core]
 	# Use Notepad++
 	#editor = 'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession
@@ -8,6 +8,7 @@
 	#editor = emacs -nw
 	# Use Vim
 	editor = vi
+	excludesfile = /home/mkasberg/.gitignore_global
 [color]
 	ui = auto
 [diff]
@@ -36,3 +37,7 @@
 	type = cat-file -t
 	dump = cat-file -p
 
+[commit]
+	template = /home/mkasberg/.gittemplate
+[pull]
+	rebase = true
