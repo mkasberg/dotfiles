@@ -14,11 +14,15 @@ fi
 apt-get install --no-install-recommends php
 
 # Install Applications with apt-get
+# Note for docker:
+# https://stackoverflow.com/questions/45023363/what-is-docker-io-in-relation-to-docker-ce-and-docker-ee/57678382#57678382
 apt-get install \
     audacity \
     build-essential \
     curl \
     default-jdk \
+    docker.io \
+    docker-compose \
     filezilla \
     ffmpeg \
     gimp \
@@ -53,8 +57,5 @@ snap install bw
 # Now, manually set up:
 # 
 # Yarn: https://yarnpkg.com/en/
-# Docker: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/#install-docker-ce
-# Docker-Compose: https://github.com/docker/compose/releases
-# VS Code: https://code.visualstudio.com/
 # Atom: https://atom.io
 

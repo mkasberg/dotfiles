@@ -9,6 +9,15 @@ if [ ! -e /usr/bin/google-chrome ]; then
     echo ""
 fi
 
+# VS Code
+if [ ! -e /usr/bin/code ]; then
+    echo ""
+    echo "VS Code Not Found!"
+    echo "You should manually install VS Code:"
+    echo "https://code.visualstudio.com/Download"
+    echo ""
+fi
+
 #RBEnv
 if [ ! -d ~/.rbenv ]; then
     echo ""
