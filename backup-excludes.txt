@@ -1,0 +1,19 @@
+pp:/home/mkasberg/Android
+pp:/home/mkasberg/AndroidStudioProjects
+pp:/home/mkasberg/code
+pp:/home/mkasberg/Dropbox
+pp:/home/mkasberg/go
+pp:/home/mkasberg/snap
+pp:/home/mkasberg/Videos
+pp:/home/mkasberg/VirtualBox VMs
+pp:/home/mkasberg/.android
+pp:/home/mkasberg/.cache
+pp:/home/mkasberg/.dropbox
+pp:/home/mkasberg/.gem
+pp:/home/mkasberg/.gradle
+pp:/home/mkasberg/.ivy2
+pp:/home/mkasberg/.m2
+pp:/home/mkasberg/.mozilla
+pp:/home/mkasberg/.npm
+pp:/home/mkasberg/.npm-packages
+pp:/home/mkasberg/.sbt
