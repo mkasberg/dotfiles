@@ -18,6 +18,7 @@ apt-get install --no-install-recommends php
 # https://stackoverflow.com/questions/45023363/what-is-docker-io-in-relation-to-docker-ce-and-docker-ee/57678382#57678382
 apt-get install \
     audacity \
+    borgbackup \
     build-essential \
     curl \
     default-jdk \
@@ -29,6 +30,7 @@ apt-get install \
     gimp-plugin-registry \
     git \
     gitk \
+    jq \
     libreadline-dev \
     libssl-dev \
     markdown \
