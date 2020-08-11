@@ -42,6 +42,7 @@ apt-get install \
     php-zip \
     ruby \
     ruby-dev \
+    silversearcher-ag \
     texlive \
     texlive-fonts-extra \
     ttf-mscorefonts-installer \
