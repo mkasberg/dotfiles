@@ -1,6 +1,6 @@
 # Mike Kasberg's Dotfiles
 
-Managed with [chezmoi](https://www.chezmoi.io).
+Managed with [chezmoi](https://www.chezmoi.io) ❤️
 
 ## Setup dotfiles on a new machine
 
