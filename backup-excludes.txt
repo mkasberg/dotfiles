@@ -12,6 +12,8 @@ pp:/home/mkasberg/.dropbox
 pp:/home/mkasberg/.gem
 pp:/home/mkasberg/.gradle
 pp:/home/mkasberg/.ivy2
+pp:/home/mkasberg/.local/share/Steam
+pp:/home/mkasberg/.local/share/Trash
 pp:/home/mkasberg/.m2
 pp:/home/mkasberg/.mozilla
 pp:/home/mkasberg/.npm
