@@ -30,6 +30,7 @@ apt-get install \
     gimp-plugin-registry \
     git \
     gitk \
+    htop \
     jq \
     libreadline-dev \
     libssl-dev \
