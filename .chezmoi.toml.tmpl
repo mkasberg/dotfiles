@@ -1,4 +1,8 @@
-{{ $email := promptString "email" -}}
+{{- $email := get . "email" -}}
+{{- if not $email -}}
+{{-   $email = promptString "Email for .gitconfig" -}}
+{{- end -}}
+
 [merge]
   command = "meld"
 [data]
