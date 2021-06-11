@@ -41,6 +41,7 @@ apt-get install \
     php-mbstring \
     php-xml \
     php-zip \
+    python3-pip \
     ruby \
     ruby-dev \
     silversearcher-ag \

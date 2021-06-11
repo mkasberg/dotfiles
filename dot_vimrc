@@ -30,3 +30,8 @@ autocmd BufNewFile,BufReadPost *.log :set filetype=log norelativenumber nonumber
 set list
 set listchars=tab:␉·
 
+" Use Powerline
+set laststatus=2  " Always display the status bar
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
