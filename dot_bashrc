@@ -62,7 +62,7 @@ if [ "$color_prompt" = yes ]; then
  
     # Read Mike's custom prompt, apply it to PS1.
     source "$HOME/.mkasberg_bash_prompt.sh"
-    PS1="$(__mk_generate_ps1)"
+    PS1="$(__mkps1)"
 else
     # Modified to support git status in PS1.
     # Also modified by Mike to function better.
