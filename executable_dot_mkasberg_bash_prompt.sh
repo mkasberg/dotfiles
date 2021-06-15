@@ -9,6 +9,14 @@ __mkps1_debian_chroot() {
     echo '${debian_chroot:+($debian_chroot)}';
 }
 
+__mkps1_time() {
+    local BG_GRAY=`tput setab 240`;
+    local WHITE=`tput setaf 7`;
+    local RESET=`tput sgr0`;
+
+    echo "\[${BG_GRAY}${WHITE}\]\t\[${RESET}\]"
+}
+
 __mkps1_username() {
     local CYAN=`tput setaf 45`;
     local RESET=`tput sgr0`;
@@ -50,7 +58,7 @@ __mkps1_user_prompt() {
 }
 
 __mkps1() {
-    local PS1="\n$(__mkps1_debian_chroot)$(__mkps1_username) $(__mkps1_arrows) $(__mkps1_workdir)$(__mkps1_git)\n$(__mkps1_user_prompt)";
+    local PS1="\n$(__mkps1_debian_chroot)$(__mkps1_time) $(__mkps1_username) $(__mkps1_arrows) $(__mkps1_workdir)$(__mkps1_git)\n$(__mkps1_user_prompt)";
 
     echo "$PS1";
 }
