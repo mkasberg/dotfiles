@@ -3,10 +3,32 @@
 # Different functions generate different parts (segments) of the PS1 prompt.
 # Each function should leave the colors in a clean state (e.g. call reset if they changed any colors).
 
+# For Git PS1
+source /usr/lib/git-core/git-sh-prompt;
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUPSTREAM="verbose"
+
 __mkps1_debian_chroot() {
     # This string is intentionally single-quoted:
     # It will be evaluated when $PS1 is evaluated to generate the prompt each time.
     echo '${debian_chroot:+($debian_chroot)}';
+}
+
+__mkps1_inject_exitcode() {
+    local CODE=$1
+
+    if [ "$CODE" -ne "0" ]; then
+        echo " $CODE "
+    fi
+}
+
+__mkps1_exitcode() {
+    local BG_RED=`tput setab 1`;
+    local WHITE=`tput setaf 15`;
+    local RESET=`tput sgr0`;
+
+    # We need to run a function at runtime to evaluate the exitcode.
+    echo "\[${BG_RED}${WHITE}\]\$(__mkps1_inject_exitcode \$?)\[${RESET}\]"
 }
 
 __mkps1_time() {
@@ -14,14 +36,14 @@ __mkps1_time() {
     local WHITE=`tput setaf 7`;
     local RESET=`tput sgr0`;
 
-    echo "\[${BG_GRAY}${WHITE}\]\t\[${RESET}\]"
+    echo "\[${BG_GRAY}${WHITE}\] \t \[${RESET}\]"
 }
 
 __mkps1_username() {
     local CYAN=`tput setaf 45`;
     local RESET=`tput sgr0`;
 
-    echo "\[${CYAN}\]\u\[${RESET}\]";
+    echo "\[${CYAN}\] \u \[${RESET}\]";
 }
 
 __mkps1_arrows() {
@@ -58,7 +80,7 @@ __mkps1_user_prompt() {
 }
 
 __mkps1() {
-    local PS1="\n$(__mkps1_debian_chroot)$(__mkps1_time) $(__mkps1_username) $(__mkps1_arrows) $(__mkps1_workdir)$(__mkps1_git)\n$(__mkps1_user_prompt)";
+    local PS1="\n$(__mkps1_debian_chroot)$(__mkps1_exitcode)$(__mkps1_time)$(__mkps1_username)$(__mkps1_arrows) $(__mkps1_workdir)$(__mkps1_git)\n$(__mkps1_user_prompt)";
 
     echo "$PS1";
 }
