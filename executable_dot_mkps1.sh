@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# MKPS1
+# (Mike Kasberg PS1)
+# (Or, Make PS1)
+
 # Different functions generate different parts (segments) of the PS1 prompt.
 # Each function should leave the colors in a clean state (e.g. call reset if they changed any colors).
 
@@ -52,7 +56,7 @@ __mkps1_arrows() {
     local GREEN=`tput setaf 34`;
     local RESET=`tput sgr0`;
 
-    echo "\[${BOLD}${RED}\]>>\[${GREEN}\]>\[${RESET}\]";
+    echo "\[${BOLD}${RED}\]🮥🮥\[${GREEN}\]🮥\[${RESET}\]";
 }
 
 __mkps1_workdir() {
@@ -72,6 +76,19 @@ __mkps1_git() {
     echo "\$(__git_ps1 ' (\[${MAGENTA}\]%s\[${RESET}\])')"
 }
 
+__mkps1_box_top() {
+    local CYAN=`tput setaf 45`;
+    local RESET=`tput sgr0`;
+    echo "\[${CYAN}\]╭\[${RESET}\]"
+}
+
+__mkps1_box_bottom() {
+    local CYAN=`tput setaf 45`;
+    local RESET=`tput sgr0`;
+    echo "\[${CYAN}\]╰\[${RESET}\]"
+}
+
+
 __mkps1_user_prompt() {
     local BOLD=`tput bold`;
     local RESET=`tput sgr0`;
@@ -80,7 +97,7 @@ __mkps1_user_prompt() {
 }
 
 __mkps1() {
-    local PS1="\n$(__mkps1_debian_chroot)$(__mkps1_exitcode)$(__mkps1_time)$(__mkps1_username)$(__mkps1_arrows) $(__mkps1_workdir)$(__mkps1_git)\n$(__mkps1_user_prompt)";
+    local PS1="\n$(__mkps1_box_top)$(__mkps1_debian_chroot)$(__mkps1_exitcode)$(__mkps1_time)$(__mkps1_username)$(__mkps1_arrows) $(__mkps1_workdir)$(__mkps1_git)\n$(__mkps1_box_bottom)$(__mkps1_user_prompt)";
 
     echo "$PS1";
 }

@@ -61,7 +61,7 @@ if [ "$color_prompt" = yes ]; then
     #PS1='$${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
  
     # Read Mike's custom prompt, apply it to PS1.
-    source "$HOME/.mkasberg_bash_prompt.sh"
+    source "$HOME/.mkps1.sh"
     PS1="$(__mkps1)"
 else
     # Modified to support git status in PS1.
