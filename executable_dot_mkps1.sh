@@ -19,87 +19,87 @@ __mkps1_debian_chroot() {
 }
 
 __mkps1_inject_exitcode() {
-    local CODE=$1
+    local code=$1
 
-    if [ "$CODE" -ne "0" ]; then
-        echo " $CODE "
+    if [ "$code" -ne "0" ]; then
+        echo " $code "
     fi
 }
 
 __mkps1_exitcode() {
-    local BG_RED=`tput setab 1`;
-    local WHITE=`tput setaf 15`;
-    local RESET=`tput sgr0`;
+    local bg_red=`tput setab 1`;
+    local white=`tput setaf 15`;
+    local reset=`tput sgr0`;
 
     # We need to run a function at runtime to evaluate the exitcode.
-    echo "\[${BG_RED}${WHITE}\]\$(__mkps1_inject_exitcode \$?)\[${RESET}\]"
+    echo "\[${bg_red}${white}\]\$(__mkps1_inject_exitcode \$?)\[${reset}\]"
 }
 
 __mkps1_time() {
     local BG_GRAY=`tput setab 240`;
-    local WHITE=`tput setaf 7`;
-    local RESET=`tput sgr0`;
+    local white=`tput setaf 7`;
+    local reset=`tput sgr0`;
 
-    echo "\[${BG_GRAY}${WHITE}\] \t \[${RESET}\]"
+    echo "\[${BG_GRAY}${white}\] \t \[${reset}\]"
 }
 
 __mkps1_username() {
-    local CYAN=`tput setaf 45`;
-    local RESET=`tput sgr0`;
+    local cyan=`tput setaf 45`;
+    local reset=`tput sgr0`;
 
-    echo "\[${CYAN}\] \u \[${RESET}\]";
+    echo "\[${cyan}\] \u \[${reset}\]";
 }
 
 __mkps1_arrows() {
-    local BOLD=`tput bold`;
-    local RED=`tput setaf 1`;
-    local GREEN=`tput setaf 34`;
-    local RESET=`tput sgr0`;
+    local bold=`tput bold`;
+    local red=`tput setaf 1`;
+    local green=`tput setaf 34`;
+    local reset=`tput sgr0`;
 
-    echo "\[${BOLD}${RED}\]🮥🮥\[${GREEN}\]🮥\[${RESET}\]";
+    echo "\[${bold}${red}\]🮥🮥\[${green}\]🮥\[${reset}\]";
 }
 
 __mkps1_workdir() {
-    local BOLD=`tput bold`;
-    local CYAN=`tput setaf 45`;
-    local RESET=`tput sgr0`;
+    local bold=`tput bold`;
+    local cyan=`tput setaf 45`;
+    local reset=`tput sgr0`;
 
-    echo "\[${BOLD}${CYAN}\]\w\[${RESET}\]";
+    echo "\[${bold}${cyan}\]\w\[${reset}\]";
 }
 
 __mkps1_git() {
-    local MAGENTA=`tput setaf 213`;
-    local RESET=`tput sgr0`;
+    local magenta=`tput setaf 213`;
+    local reset=`tput sgr0`;
 
     # Escaping the $ is intentional:
     # This is evaluated when the prompt is generated.
-    echo "\$(__git_ps1 ' (\[${MAGENTA}\]%s\[${RESET}\])')"
+    echo "\$(__git_ps1 ' (\[${magenta}\]%s\[${reset}\])')"
 }
 
 __mkps1_box_top() {
-    local CYAN=`tput setaf 45`;
-    local RESET=`tput sgr0`;
-    echo "\[${CYAN}\]╭\[${RESET}\]"
+    local cyan=`tput setaf 45`;
+    local reset=`tput sgr0`;
+    echo "\[${cyan}\]╭\[${reset}\]"
 }
 
 __mkps1_box_bottom() {
-    local CYAN=`tput setaf 45`;
-    local RESET=`tput sgr0`;
-    echo "\[${CYAN}\]╰\[${RESET}\]"
+    local cyan=`tput setaf 45`;
+    local reset=`tput sgr0`;
+    echo "\[${cyan}\]╰\[${reset}\]"
 }
 
 
 __mkps1_user_prompt() {
-    local BOLD=`tput bold`;
-    local RESET=`tput sgr0`;
+    local bold=`tput bold`;
+    local reset=`tput sgr0`;
     
-    echo "\[${BOLD}\]\$\[${RESET}\] ";
+    echo "\[${bold}\]\$\[${reset}\] ";
 }
 
 __mkps1() {
-    local PS1="\n$(__mkps1_box_top)$(__mkps1_debian_chroot)$(__mkps1_exitcode)$(__mkps1_time)$(__mkps1_username)$(__mkps1_arrows) $(__mkps1_workdir)$(__mkps1_git)\n$(__mkps1_box_bottom)$(__mkps1_user_prompt)";
+    local ps1="\n$(__mkps1_box_top)$(__mkps1_debian_chroot)$(__mkps1_exitcode)$(__mkps1_time)$(__mkps1_username)$(__mkps1_arrows) $(__mkps1_workdir)$(__mkps1_git)\n$(__mkps1_box_bottom)$(__mkps1_user_prompt)";
 
-    echo "$PS1";
+    echo "$ps1";
 }
 
 # To test, for example, print output before changes and after changes
