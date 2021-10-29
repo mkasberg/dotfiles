@@ -10,24 +10,10 @@ Managed with [chezmoi](https://www.chezmoi.io) ❤️
      $ bw login
      ```
 
-  2. [Install chezmoi](https://www.chezmoi.io/docs/install/) to `~/bin`.
+  2. [Install chezmoi](https://www.chezmoi.io/docs/install/) to `./bin` and
+     install dotfiles to `~/dotfiles`.
      ```
-     $ sh -c "$(curl -fsLS git.io/chezmoi)"
-     ```
-
-  3. Initialize chezmoi. Use `https` since we don't have creds yet.
-     ```
-     $ bin/chezmoi init mkasberg
-     ```
-
-  4. (Optional) Check the diff.
-     ```
-     $ chezmoi apply -nv
-     ```
-
-  5. Install the dotfiles.
-     ```
-     $ chezmoi apply
+     $ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply -S ~/dotfiles mkasberg
      ```
 
 Done! To keep up to date in the future:
@@ -36,3 +22,17 @@ Done! To keep up to date in the future:
 $ chezmoi update
 ```
 
+Want to check the diff before applying changes?
+
+```
+$ chezmoi <update|apply> -nv
+```
+
+## Testing
+
+Want to test a fresh install on a new machine? A dev container in Docker is
+great for this because it comes with a non-root user.
+
+```
+$ docker run --rm -it --user vscode --workdir /home/vscode mcr.microsoft.com/vscode/devcontainers/base:0-hirsute
+```
