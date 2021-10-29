@@ -1,4 +1,4 @@
-{{- if (eq .store_secrets "y") -}}
+{{- if .store_secrets -}}
 Host bitbucket.org
  IdentityFile ~/.ssh/id_rsa
 

@@ -1,3 +1,4 @@
+{{- if .install_ubuntu_apps -}}
 #!/usr/bin/env bash
 
 ##
@@ -64,4 +65,4 @@ snap install bw
 # 
 # Yarn: https://yarnpkg.com/en/
 # Atom: https://atom.io
-
+{{ end -}}

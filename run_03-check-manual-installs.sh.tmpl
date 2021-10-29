@@ -1,3 +1,4 @@
+{{- if .install_ubuntu_apps -}}
 #!/usr/bin/env bash
 
 # Google Chrome - manual download once
@@ -39,3 +40,4 @@ if [ ! -d ~/.nvm ]; then
     echo "https://github.com/nvm-sh/nvm#installing-and-updating"
     echo ""
 fi
+{{ end -}}

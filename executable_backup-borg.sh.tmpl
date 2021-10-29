@@ -1,4 +1,4 @@
-{{- if (eq .store_secrets "y") -}}
+{{- if .store_secrets -}}
 #!/bin/bash
 # Backup a folder to a remote address using borg.
 # Usage: backup-borg.sh
