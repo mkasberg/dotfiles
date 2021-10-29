@@ -16,6 +16,8 @@
 {{-   $storeSecrets = promptString "Store secrets on this machine (y/N)" -}}
 {{- end -}}
 
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
 [merge]
   command = "meld"
 [data]
