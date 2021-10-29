@@ -4,20 +4,20 @@ Managed with [chezmoi](https://www.chezmoi.io) ❤️
 
 ## Setup dotfiles on a new machine
 
-  1. Install Bitwarden (needed to decrypt secrets) and login.
+  1. (Optional) Install Bitwarden and login if you plan to install secrets.
      ```
      $ sudo snap install bw
      $ bw login
      ```
 
-  2. Install chezmoi to `~/bin`.
+  2. [Install chezmoi](https://www.chezmoi.io/docs/install/) to `~/bin`.
      ```
-     $ curl -sfL https://git.io/chezmoi | sh
+     $ sh -c "$(curl -fsLS git.io/chezmoi)"
      ```
 
   3. Initialize chezmoi. Use `https` since we don't have creds yet.
      ```
-     $ bin/chezmoi init https://github.com/mkasberg/dotfiles.git
+     $ bin/chezmoi init mkasberg
      ```
 
   4. (Optional) Check the diff.

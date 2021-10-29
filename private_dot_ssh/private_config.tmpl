@@ -1,3 +1,4 @@
+{{- if (eq .store_secrets "y") -}}
 Host bitbucket.org
  IdentityFile ~/.ssh/id_rsa
 
@@ -8,4 +9,4 @@ Host ssh.phx.nearlyfreespeech.net
 Host catholicstuffpodcast.com
  User {{ (bitwarden "item" "5bceb80e-b91a-40f5-98b6-ab9901369978").notes }}
  IdentityFile ~/.ssh/id_rsa
-
+{{ end -}}

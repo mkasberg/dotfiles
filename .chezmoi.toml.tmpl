@@ -1,9 +1,23 @@
-{{- $email := get . "email" -}}
-{{- if not $email -}}
+{{- /* Prompt on first init, but don't re-prompt on subsequent init if the data is there. */ -}}
+{{- /* https://www.chezmoi.io/docs/how-to/#re-create-your-config-file */ -}}
+
+{{- $email := "" -}}
+{{- if (hasKey . "email") -}}
+{{-   $email = .email -}}
+{{- else -}}
 {{-   $email = promptString "Email for .gitconfig" -}}
+{{- end -}}
+
+{{- /* If this is false, don't use anything from bitwarden. */ -}}
+{{- $storeSecrets := "" -}}
+{{- if (hasKey . "store_secrets") -}}
+{{-   $storeSecrets = .store_secrets -}}
+{{- else -}}
+{{-   $storeSecrets = promptString "Store secrets on this machine (y/N)" -}}
 {{- end -}}
 
 [merge]
   command = "meld"
 [data]
   email = {{ $email | quote }}
+  store_secrets = {{ $storeSecrets | quote }}
