@@ -52,7 +52,8 @@ apt-get install \
     ttf-mscorefonts-installer \
     vim-gtk3 \
     vlc \
-    zlib1g-dev
+    zlib1g-dev \
+    zsh
 
 # Install snap packages
 snap install --classic intellij-idea-community
@@ -60,6 +61,10 @@ snap install --classic heroku
 snap install spotify
 snap install bw
 
+
+if [ ! -d "${HOME}/.oh-my-zsh" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+fi
 
 # Now, manually set up:
 # 
