@@ -52,7 +52,7 @@ __mkps1_user_prompt() {
     echo "%B\$%b ";
 }
 
-PROMPT="$(__mkps1_box_top)$(__mkps1_exitcode)$(__mkps1_time)$(__mkps1_username)$(__mkps1_arrow)$(__mkps1_workdir)$(__mkps1_git)"$'\n'"$(__mkps1_box_bottom)$(__mkps1_user_prompt)"
+PROMPT=$'\n'"$(__mkps1_box_top)$(__mkps1_exitcode)$(__mkps1_time)$(__mkps1_username)$(__mkps1_arrow)$(__mkps1_workdir)$(__mkps1_git)"$'\n'"$(__mkps1_box_bottom)$(__mkps1_user_prompt)"
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" %F{25}(%F{213}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f"
