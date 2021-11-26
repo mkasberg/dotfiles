@@ -5,6 +5,13 @@
 # Script to install Mike's user (non-root) apps on Ubuntu.
 ##
 
+# Default Shell
+grep mkasberg /etc/passwd | grep /usr/bin/zsh > /dev/null
+if [ $? -ne 0 ]; then
+    echo "Changing user shell to zsh..."
+    chsh -s /usr/bin/zsh
+fi
+
 # Oh My Zsh
 if [ -d "${HOME}/.oh-my-zsh" ]; then
     echo "Oh My Zsh already installed at: ${HOME}/.oh-my-zsh"
