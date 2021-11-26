@@ -10,10 +10,10 @@ Managed with [chezmoi](https://www.chezmoi.io) ❤️
      $ bw login
      ```
 
-  2. [Install chezmoi](https://www.chezmoi.io/docs/install/) to `./bin` and
+  2. [Install chezmoi](https://www.chezmoi.io/docs/install/) to `~/bin` and
      install dotfiles to `~/dotfiles`.
      ```
-     $ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply -S ~/dotfiles mkasberg
+     $ sh -c "$(curl -fsLS git.io/chezmoi)" -- -b "$HOME/bin" init --apply -S ~/dotfiles mkasberg
      ```
 
 Done! To keep up to date in the future:
