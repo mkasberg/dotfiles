@@ -1,3 +1,4 @@
+{{- if not .codespaces -}}
 [user]
 	name = Mike Kasberg
 	email = {{ .email }}
@@ -41,3 +42,4 @@
 	template = /home/mkasberg/.gittemplate
 [pull]
 	rebase = true
+{{ end -}}

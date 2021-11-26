@@ -1,26 +1,36 @@
 {{- /* Prompt on first init, but don't re-prompt on subsequent init if the data is there. */ -}}
 {{- /* https://www.chezmoi.io/docs/how-to/#re-create-your-config-file */ -}}
 
+{{- /* Support non-interactive installation for Codespaces. */ -}}
+{{- /* https://www.chezmoi.io/docs/how-to/#use-chezmoi-with-github-codespaces-visual-studio-codespaces-or-visual-studio-code-remote---containers */ -}}
+{{- $codespaces:= env "REMOTE_CONTAINERS" | not | not -}}
+
 {{- $email := "" -}}
-{{- if (hasKey . "email") -}}
-{{-   $email = .email -}}
-{{- else -}}
-{{-   $email = promptString "Email for .gitconfig" -}}
-{{- end -}}
-
-{{- /* If this is false, don't use anything from bitwarden. */ -}}
 {{- $storeSecrets := false -}}
-{{- if (hasKey . "store_secrets") -}}
-{{-   $storeSecrets = .store_secrets -}}
-{{- else -}}
-{{-   $storeSecrets = eq (promptString "Store secrets on this machine (y/N)") "y" -}}
-{{- end -}}
-
 {{- $installUbuntuApps := false -}}
-{{- if (hasKey . "install_ubuntu_apps") -}}
-{{-   $installUbuntuApps = .install_ubuntu_apps -}}
+{{- if $codespaces -}}
+  {{- $email := "kasberg.mike@gmail.com" -}}
+  {{- $storeSecrets := false -}}
+  {{- $installUbuntuApps := false -}}
 {{- else -}}
-{{-   $installUbuntuApps = eq (promptString "Install Ubuntu applications (y/N)") "y" -}}
+  {{- if (hasKey . "email") -}}
+    {{- $email = .email -}}
+  {{- else -}}
+    {{- $email = promptString "Email for .gitconfig" -}}
+  {{- end -}}
+  
+  {{- /* If this is false, don't use anything from bitwarden. */ -}}
+  {{- if (hasKey . "store_secrets") -}}
+    {{- $storeSecrets = .store_secrets -}}
+  {{- else -}}
+    {{- $storeSecrets = eq (promptString "Store secrets on this machine (y/N)") "y" -}}
+  {{- end -}}
+  
+  {{- if (hasKey . "install_ubuntu_apps") -}}
+    {{- $installUbuntuApps = .install_ubuntu_apps -}}
+  {{- else -}}
+    {{- $installUbuntuApps = eq (promptString "Install Ubuntu applications (y/N)") "y" -}}
+  {{- end -}}
 {{- end -}}
 
 sourceDir = {{ .chezmoi.sourceDir | quote }}
@@ -31,3 +41,4 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
   email = {{ $email | quote }}
   store_secrets = {{ $storeSecrets }}
   install_ubuntu_apps = {{ $installUbuntuApps }}
+  codespaces = {{ $codespaces }}
