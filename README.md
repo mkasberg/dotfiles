@@ -34,6 +34,7 @@ Want to check the diff before applying changes?
 * Per-machine [git email](https://github.com/mkasberg/dotfiles/blob/1cf2a9c5787fa326ff2228414117beb479145147/dot_gitconfig.tmpl#L4), set once during setup
 * Optionally (per machine) install [secrets from Bitwarden](https://github.com/mkasberg/dotfiles/blob/1cf2a9c5787fa326ff2228414117beb479145147/.chezmoi.toml.tmpl#L22-L27)
 * [Install script](install.sh) for [VS Code Remote Containers Dotfiles](https://code.visualstudio.com/docs/remote/containers#_personalizing-with-dotfile-repositories)
+* [Vim filetypes for chezmoi](dot_vim/ftdetect/chezmoi.vim)
 
 ## Testing
 
