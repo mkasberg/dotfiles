@@ -42,3 +42,10 @@ Want to test a fresh install on a new machine? A dev container in Docker is
 great for this because it comes with a non-root user.
 
     $ docker run --rm -it --user vscode --workdir /home/vscode mcr.microsoft.com/vscode/devcontainers/base:0-hirsute
+
+## Security
+
+Did you find a vulnerability in my dotfiles? An exposed secret? Some other
+security issue? Please report vulnerabilities via email to
+[kasberg.mike@gmail.com](mailto:kasberg.mike@gmail.com) or
+[mike@mikekasberg.com](mailto:mike@mikekasberg.com).
