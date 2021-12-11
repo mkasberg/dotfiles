@@ -36,6 +36,15 @@ Want to check the diff before applying changes?
 * [Install script](install.sh) for [VS Code Remote Containers Dotfiles](https://code.visualstudio.com/docs/remote/containers#_personalizing-with-dotfile-repositories)
 * [Vim filetypes for chezmoi](dot_vim/ftdetect/chezmoi.vim)
 
+## Start Your Own Dotfiles
+
+Want to use Chezmoi to manage your own dotfiles? The best way to get started is
+to follow the [Chezmoi Quick Start
+Guide](https://www.chezmoi.io/docs/quick-start/) to start tracking your first
+dotfile (`~/.bashrc`, `~/.zshrc`, or `~/.gitconfig` are great files to start
+with). Beyond that, I hope you can find some inspiration by looking at my
+dotfiles and copying things you like!
+
 ## Testing
 
 Want to test a fresh install on a new machine? A dev container in Docker is
