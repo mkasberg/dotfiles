@@ -11,7 +11,7 @@ if [ ! -e /usr/bin/google-chrome ]; then
 fi
 
 # VS Code
-if [ ! -e /usr/bin/code ]; then
+if [ ! -e /usr/bin/code -a ! -e /snap/bin/code ]; then
     echo ""
     echo "VS Code Not Found!"
     echo "You should manually install VS Code:"
