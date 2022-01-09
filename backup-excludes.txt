@@ -9,14 +9,15 @@ pp:/home/mkasberg/Videos
 pp:/home/mkasberg/VirtualBox VMs
 pp:/home/mkasberg/.android
 pp:/home/mkasberg/.cache
+pp:/home/mkasberg/.config/Code
 pp:/home/mkasberg/.dropbox
 pp:/home/mkasberg/.gem
 pp:/home/mkasberg/.gradle
 pp:/home/mkasberg/.ivy2
-pp:/home/mkasberg/.local/share/Steam
-pp:/home/mkasberg/.local/share/Trash
+pp:/home/mkasberg/.local
 pp:/home/mkasberg/.m2
 pp:/home/mkasberg/.mozilla
 pp:/home/mkasberg/.npm
 pp:/home/mkasberg/.npm-packages
+pp:/home/mkasberg/.rbenv
 pp:/home/mkasberg/.sbt
