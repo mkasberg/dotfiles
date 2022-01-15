@@ -6,7 +6,6 @@ pp:/home/mkasberg/Games/StarCraft-II
 pp:/home/mkasberg/go
 pp:/home/mkasberg/snap
 pp:/home/mkasberg/Videos
-pp:/home/mkasberg/VirtualBox VMs
 pp:/home/mkasberg/.android
 pp:/home/mkasberg/.cache
 pp:/home/mkasberg/.config/Code
