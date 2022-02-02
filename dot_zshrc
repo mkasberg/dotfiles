@@ -118,6 +118,17 @@ if [ -d "$HOME/.rbenv/bin" ]; then
     eval "$(rbenv init -)"
 fi
 
+# Put Coursier on PATH if it exists
+if [ -d "$HOME/.local/share/coursier/bin" ]; then
+    PATH="$HOME/.local/share/coursier/bin:$PATH"
+fi
+
+# Bloop Completions
+autoload -U compinit
+fpath=($HOME/.bloop/zsh $fpath)
+compinit
+
+
 # NVM
 # Do this in both .profile (for GUIs like RubyMine)
 # and .bashrc (for shells)

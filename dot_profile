@@ -29,6 +29,11 @@ if [ -d "$HOME/Android/Sdk/platform-tools" ]; then
     PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 fi
 
+# Put Coursier on PATH if it exists
+if [ -d "$HOME/.local/share/coursier/bin" ]; then
+    PATH="$HOME/.local/share/coursier/bin:$PATH"
+fi
+
 # NVM
 # Do this in both .profile (for GUIs like RubyMine)
 # and .bashrc (for shells)

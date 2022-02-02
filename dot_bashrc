@@ -147,6 +147,12 @@ if [ -d "$HOME/.rbenv/bin" ]; then
     eval "$(rbenv init -)"
 fi
 
+# Bloop Complpetion
+if [ -e "$HOME/.bloop/bash/bloop" ]; then
+    . $HOME/.bloop/bash/bloop
+fi
+
+
 # NVM
 # Do this in both .profile (for GUIs like RubyMine)
 # and .bashrc (for shells)
