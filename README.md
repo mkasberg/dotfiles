@@ -4,7 +4,7 @@ Managed with [chezmoi](https://www.chezmoi.io) ❤️
 
 ## Setup dotfiles on a new machine
 
-  1. (Optional) Install Bitwarden and login if you plan to install secrets.
+  1. (Optional) Install [Bitwarden](https://bitwarden.com/) and login if you plan to install secrets.
      ```
      sudo snap install bw
      bw login
