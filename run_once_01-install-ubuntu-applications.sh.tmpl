@@ -60,14 +60,12 @@ apt-get install \
     zsh
 
 # Install snap packages
-snap install --classic intellij-idea-community
-snap install --classic heroku
-snap install spotify
-snap install bw
+which snap > /dev/null
+if [ $? -eq 0 ]; then
+    snap install --classic intellij-idea-community
+    snap install --classic heroku
+    snap install spotify
+    snap install bw
+fi
 
-
-# Now, manually set up:
-# 
-# Yarn: https://yarnpkg.com/en/
-# Atom: https://atom.io
 {{ end -}}
