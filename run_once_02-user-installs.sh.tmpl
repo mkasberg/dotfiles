@@ -23,8 +23,7 @@ fi
 pip install --user powerline-status
 
 # NVM and NodeJS
-command -v nvm > /dev/null
-if [ $? -ne 0 ]; then
+if [ ! -d ~/.nvm ]; then
     echo "Installing nvm..."
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
     export NVM_DIR="$HOME/.nvm"
