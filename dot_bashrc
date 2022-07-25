@@ -139,7 +139,7 @@ if [ -d "/usr/local/go/bin" ]; then
 fi
 
 # NPM/Yarn User-installed Packages
-export PATH="$PATH:/home/mkasberg/.npm-packages/bin"
+export PATH="$PATH:$HOME/.npm-packages/bin"
 
 # Add RBEnv
 if [ -d "$HOME/.rbenv/bin" ]; then
