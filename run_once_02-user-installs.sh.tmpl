@@ -1,16 +1,18 @@
-{{- if .install_ubuntu_apps -}}
+{{- if .install_apps -}}
 #!/usr/bin/env bash
 
 ##
 # Script to install Mike's user (non-root) apps on Ubuntu.
 ##
 
+{{ if eq .chezmoi.os "linux" }}
 # Default Shell
 grep mkasberg /etc/passwd | grep /usr/bin/zsh > /dev/null
 if [ $? -ne 0 ]; then
     echo "Changing user shell to zsh..."
     chsh -s /usr/bin/zsh
 fi
+{{ end }}
 
 # Oh My Zsh
 if [ -d "${HOME}/.oh-my-zsh" ]; then
@@ -19,8 +21,11 @@ else
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 fi
 
+{{/* TODO requires pip installed on macOS */}}
+{{ if eq .chezmoi.os "linux" }}
 # Vim powerline-status
 pip install --user powerline-status
+{{ end }}
 
 # NVM and NodeJS
 if [ ! -d ~/.nvm ]; then

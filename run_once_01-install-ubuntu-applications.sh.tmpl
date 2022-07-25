@@ -1,4 +1,4 @@
-{{- if .install_ubuntu_apps -}}
+{{- if and (.install_apps) (eq .chezmoi.os "linux") -}}
 #!/usr/bin/env bash
 
 ##

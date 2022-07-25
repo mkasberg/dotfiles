@@ -7,11 +7,11 @@
 
 {{- $email := "" -}}
 {{- $storeSecrets := false -}}
-{{- $installUbuntuApps := false -}}
+{{- $installApps := false -}}
 {{- if $codespaces -}}
   {{- $email := "kasberg.mike@gmail.com" -}}
   {{- $storeSecrets := false -}}
-  {{- $installUbuntuApps := false -}}
+  {{- $installApps := false -}}
 {{- else -}}
   {{- if (hasKey . "email") -}}
     {{- $email = .email -}}
@@ -26,10 +26,10 @@
     {{- $storeSecrets = eq (promptString "Store secrets on this machine (y/N)") "y" -}}
   {{- end -}}
   
-  {{- if (hasKey . "install_ubuntu_apps") -}}
-    {{- $installUbuntuApps = .install_ubuntu_apps -}}
+  {{- if (hasKey . "install_apps") -}}
+    {{- $installApps = .install_apps -}}
   {{- else -}}
-    {{- $installUbuntuApps = eq (promptString "Install Ubuntu applications (y/N)") "y" -}}
+    {{- $installApps = eq (promptString "Install applications (y/N)") "y" -}}
   {{- end -}}
 {{- end -}}
 
@@ -40,5 +40,5 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
 [data]
   email = {{ $email | quote }}
   store_secrets = {{ $storeSecrets }}
-  install_ubuntu_apps = {{ $installUbuntuApps }}
+  install_apps = {{ $installApps }}
   codespaces = {{ $codespaces }}
