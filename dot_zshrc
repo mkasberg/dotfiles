@@ -65,12 +65,15 @@ ZSH_THEME="mkasberg"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM="${HOME}/.zsh_custom"
 
+# NVM Plugin Settings (see the plugin README).
+NVM_AUTOLOAD=1
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gh kubectl)
+plugins=(git gh kubectl nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,23 +132,3 @@ fi
 autoload -U compinit
 fpath=($HOME/.bloop/zsh $fpath)
 compinit
-
-
-# NVM
-# Do this in both .profile (for GUIs like RubyMine)
-# and .bashrc (for shells)
-if [ -d "$HOME/.nvm" ]; then
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
-# Mike - OPTIONAL cd Alias for .nvmrc
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-cd() { builtin cd "$@"; 'load-nvmrc'; }
