@@ -6,6 +6,7 @@ cask "bitwarden"
 cask "docker"
 cask "firefox"
 cask "gimp"
+cask "iterm2"
 cask "meld"
 cask "visual-studio-code"
 
