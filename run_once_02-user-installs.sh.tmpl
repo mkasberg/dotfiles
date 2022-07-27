@@ -21,11 +21,8 @@ else
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 fi
 
-{{/* TODO requires pip installed on macOS */}}
-{{ if eq .chezmoi.os "linux" }}
 # Vim powerline-status
-pip install --user powerline-status
-{{ end }}
+pip3 install --user powerline-status
 
 # NVM and NodeJS
 if [ ! -d ~/.nvm ]; then
