@@ -132,3 +132,8 @@ fi
 autoload -U compinit
 fpath=($HOME/.bloop/zsh $fpath)
 compinit
+
+# Unlock Bitwarden in one command
+bw-unlock() {
+  export BW_SESSION=$(bw unlock | grep 'export BW_SESSION' | sed 's/$ export BW_SESSION="//' | sed 's/"//')
+}
