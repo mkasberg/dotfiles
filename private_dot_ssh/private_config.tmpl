@@ -1,4 +1,12 @@
 {{- if .store_secrets -}}
+{{- if eq .chezmoi.os "darwin" -}}
+Host *
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/id_rsa
+
+{{ end -}}
+
 Host bitbucket.org
  IdentityFile ~/.ssh/id_rsa
 
