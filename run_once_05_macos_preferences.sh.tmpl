@@ -1,3 +1,4 @@
+{{- if eq .chezmoi.os "darwin" -}}
 #!/usr/bin/env bash
 
 # Adapted from
@@ -466,3 +467,4 @@ defaults write com.apple.Terminal ShowLineMarks -int 0
 #defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
+{{ end -}}
