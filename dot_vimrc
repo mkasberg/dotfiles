@@ -1,5 +1,8 @@
 " Mike's .vimrc
 
+" Make backspace work on macOS
+set backspace=indent,eol,nostop
+
 " Use 4 spaces for a tab.
 set softtabstop=4 shiftwidth=4 expandtab
 
