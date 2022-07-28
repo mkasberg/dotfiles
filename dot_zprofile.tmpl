@@ -1,0 +1,9 @@
+# include .profile if it exists.
+if [ -f "$HOME/.profile" ]; then
+    . "$HOME/.profile"
+fi
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Homebrew startup
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{ end -}}
