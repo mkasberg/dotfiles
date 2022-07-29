@@ -11,6 +11,7 @@ cask "meld"
 cask "visual-studio-code"
 
 brew "git"
+brew "jq"
 brew "python@3.10"
 brew "rbenv"
 brew "ruby-build"
