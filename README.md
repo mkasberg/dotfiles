@@ -5,8 +5,17 @@ Managed with [chezmoi](https://www.chezmoi.io) ❤️
 ## Setup dotfiles on a new machine
 
   1. (Optional) Install [Bitwarden](https://bitwarden.com/) and login if you plan to install secrets.
+
+     **Linux**
      ```
      sudo snap install bw
+     bw login
+     ```
+
+     **macOS**
+     ```
+     curl -o ~/bin/bw 'https://vault.bitwarden.com/download/\?app\=cli\&platform\=macos'
+     chmod +x ~/bin/bw
      bw login
      ```
 
@@ -26,6 +35,7 @@ Want to check the diff before applying changes?
 
 ## Notable Features
 
+* Cross-platform (macOS & Linux)
 * Scripts to install [system](run_once_01-install-ubuntu-applications.sh.tmpl)
   and [user](run_once_02-user-installs.sh.tmpl) applications and preferences
 * Custom [PS1 Bash Prompt](https://github.com/mkasberg/dotfiles/blob/1cf2a9c5787fa326ff2228414117beb479145147/dot_bashrc#L63-L64)
