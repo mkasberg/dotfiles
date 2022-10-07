@@ -1,4 +1,11 @@
+# Mike's Global .gitignore file
+
+# IntelliJ IDE settings
 /.idea/
+
+# Scala bsp folders
 /.bloop/
 /.bsp/
 
+# Hidden macOS files
+.DS_Store
