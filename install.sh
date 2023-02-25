@@ -39,7 +39,7 @@ fi
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 # exec: replace current process with chezmoi init
-if [ "$quiet" == "y" ]; then
+if [ "$quiet" = "y" ]; then
   exec "$chezmoi" init --apply "--source=$script_dir" --promptString "Email for .gitconfig=kasberg.mike@gmail.com,Store secrets on this machine (y/N)=N,Install applications (y/N)=$install_apps"
 else
   exec "$chezmoi" init --apply "--source=$script_dir"
