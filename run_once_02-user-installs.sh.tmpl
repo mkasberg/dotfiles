@@ -35,7 +35,7 @@ fi
 
 which node > /dev/null
 if [ $? -ne 0 ]; then
-    nvm install node
+    nvm install --lts
 fi
 
 # TLDR Pages https://tldr.sh/
