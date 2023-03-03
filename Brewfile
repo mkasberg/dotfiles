@@ -13,6 +13,7 @@ cask "spotify"
 cask "visual-studio-code"
 
 brew "coreutils"
+brew "gh"
 brew "git"
 brew "git-gui"
 brew "jq"
