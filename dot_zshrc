@@ -131,6 +131,12 @@ if [ -d "$HOME/.local/share/coursier/bin" ]; then
     PATH="$HOME/.local/share/coursier/bin:$PATH"
 fi
 
+# Fly.io (if it exists)
+if [ -d "$HOME/.fly" ]; then
+    export FLYCTL_INSTALL="$HOME/.fly"
+    export PATH="$FLYCTL_INSTALL/bin:$PATH"
+fi
+
 # Bloop Completions
 autoload -U compinit
 fpath=($HOME/.bloop/zsh $fpath)
