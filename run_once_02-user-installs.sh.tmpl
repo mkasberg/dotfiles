@@ -21,9 +21,6 @@ else
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 fi
 
-# Vim powerline-status
-pip3 install --user powerline-status
-
 # NVM and NodeJS
 if [ ! -d ~/.nvm ]; then
     echo "Installing nvm..."
