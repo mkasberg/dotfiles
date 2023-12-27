@@ -1,6 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Mike - Uncomment to profile zsh startup
+# Don't forget to also uncomment the line to print output at the end of this file.
+# zmodload zsh/zprof
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -146,3 +150,7 @@ compinit
 bw-unlock() {
   export BW_SESSION=$(bw unlock | grep 'export BW_SESSION' | sed 's/$ export BW_SESSION="//' | sed 's/"//')
 }
+
+# Uncomment to print startup profiling.
+# Don't forget to also uncomment the line to begin profiling near the top.
+# zprof
