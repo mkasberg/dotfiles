@@ -5,8 +5,6 @@
 set backspace=indent,eol,nostop
 " Enable syntax highlighting
 syntax on
-" Enable mouse
-set mouse=a
 
 " Use 4 spaces for a tab.
 set softtabstop=4 shiftwidth=4 expandtab
