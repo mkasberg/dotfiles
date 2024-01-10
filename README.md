@@ -14,8 +14,8 @@ Managed with [chezmoi](https://www.chezmoi.io) ❤️
 
      **macOS**
      ```
-     curl -o ~/bin/bw 'https://vault.bitwarden.com/download/\?app\=cli\&platform\=macos'
-     chmod +x ~/bin/bw
+     curl -o ~/bin/bw.zip -L 'https://vault.bitwarden.com/download/?app=cli&platform=macos'
+     unzip -d ~/bin ~/bin/bw.zip && rm ~/bin/bw.zip
      bw login
      ```
 
