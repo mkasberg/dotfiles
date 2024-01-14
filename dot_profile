@@ -16,17 +16,17 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+# Put Android SDK on PATH if it exists
+if [ -d "$HOME/Android/Sdk/platform-tools" ]; then
+    PATH="$HOME/Android/Sdk/platform-tools:$PATH"
+fi
+
 # set PATH so it includes user's private bin directories
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
-fi
-
-# Put Android SDK on PATH if it exists
-if [ -d "$HOME/Android/Sdk/platform-tools" ]; then
-    PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 fi
 
 # Put Coursier on PATH if it exists

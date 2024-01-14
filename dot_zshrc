@@ -106,6 +106,12 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Android SDK platform-tools shadows SQLite3 with a worse version.
+# Alias the good version here.
+if [ -x "/usr/bin/sqlite3" ]; then
+    alias sqlite="/usr/bin/sqlite3"
+fi
+
 HISTSIZE=20000
 SAVEHIST=20000
 
