@@ -36,5 +36,6 @@ autocmd BufNewFile,BufReadPost *.log :set filetype=log norelativenumber nonumber
 set list
 set listchars=tab:␉·
 
-" Statusline Customizations
+" Statusline - https://github.com/itchyny/lightline.vim
 set laststatus=2  " Always display the status bar
+set noshowmode
