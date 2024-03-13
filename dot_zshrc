@@ -157,6 +157,9 @@ bw-unlock() {
   export BW_SESSION=$(bw unlock | grep 'export BW_SESSION' | sed 's/$ export BW_SESSION="//' | sed 's/"//')
 }
 
+# Dokku Client CLI
+alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
+
 # Uncomment to print startup profiling.
 # Don't forget to also uncomment the line to begin profiling near the top.
 # zprof
