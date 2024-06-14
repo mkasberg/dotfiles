@@ -62,7 +62,7 @@ great for this because it comes with a non-root user. Use the Docker command
 below to get into a fresh, disposable testing environment, then run the
 installation steps from above.
 
-    docker run --rm -it --user vscode --workdir /home/vscode mcr.microsoft.com/vscode/devcontainers/base:ubuntu
+    docker run --rm -it --user vscode --workdir /home/vscode mcr.microsoft.com/devcontainers/base:ubuntu
 
 For convenience, `./test.sh` use the above to install dotfiles from the current
 working directory and drop you into a prompt.
