@@ -4,20 +4,24 @@
 echo "Installing Fonts..."
 mkdir -p ~/.local/share/fonts
 
-# Ubuntu Mono Nerd Font
-if [ ! -e ~/.local/share/fonts/Ubuntu\ Mono\ Nerd\ Font\ Complete\ Mono.ttf ]; then
-    curl -fLo ~/.local/share/fonts/Ubuntu\ Mono\ Nerd\ Font\ Complete\ Mono.ttf 'https://github.com/ryanoasis/nerd-fonts/blob/v3.1.1/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf?raw=true'
-fi
+# See https://github.com/basecamp/omakub/blob/448b3290a91a47dd066106ceaaefd9256e11c92e/bin/omakub-font
 
-if [ ! -e ~/.local/share/fonts/Ubuntu\ Mono\ Bold\ Nerd\ Font\ Complete\ Mono.ttf ]; then
-    curl -fLo ~/.local/share/fonts/Ubuntu\ Mono\ Bold\ Nerd\ Font\ Complete\ Mono.ttf 'https://github.com/ryanoasis/nerd-fonts/blob/v3.1.1/patched-fonts/UbuntuMono/Bold/complete/Ubuntu%20Mono%20Bold%20Nerd%20Font%20Complete%20Mono.ttf?raw=true'
-fi
+ensure_font() {
+  local font_name=$1
+  local url=$2
+  local file_type=$3
+  local file_name="${font_name/ Nerd Font/}"
 
-if [ ! -e ~/.local/share/fonts/Ubuntu\ Mono\ Italic\ Nerd\ Font\ Complete\ Mono.ttf ]; then
-    curl -fLo ~/.local/share/fonts/Ubuntu\ Mono\ Italic\ Nerd\ Font\ Complete\ Mono.ttf 'https://github.com/ryanoasis/nerd-fonts/blob/v3.1.1/patched-fonts/UbuntuMono/Regular-Italic/complete/Ubuntu%20Mono%20Italic%20Nerd%20Font%20Complete%20Mono.ttf?raw=true'
-fi
+  if ! $(fc-list | grep -i "$font_name" > /dev/null); then
+    cd /tmp
+    wget -O "$file_name.zip" "$url"
+    unzip "$file_name.zip" -d "$file_name"
+    cp "$file_name"/*."$file_type" ~/.local/share/fonts
+    rm -rf "$file_name.zip" "$file_name"
+    fc-cache
+    cd -
+  fi
+}
 
-if [ ! -e ~/.local/share/fonts/Ubuntu\ Mono\ Bold\ Italic\ Nerd\ Font\ Complete\ Mono.ttf ]; then
-    curl -fLo ~/.local/share/fonts/Ubuntu\ Mono\ Bold\ Italic\ Nerd\ Font\ Complete\ Mono.ttf 'https://github.com/ryanoasis/nerd-fonts/blob/v3.1.1/patched-fonts/UbuntuMono/Bold-Italic/complete/Ubuntu%20Mono%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf?raw=true'
-fi
+ensure_font "UbuntuMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/UbuntuMono.zip" "ttf"
 {{ end -}}
