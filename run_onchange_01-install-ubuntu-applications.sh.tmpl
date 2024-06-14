@@ -11,6 +11,8 @@ if [ $EUID != 0 ]; then
     exit $?
 fi
 
+add-apt-repository -y ppa:zhangsongcui3371/fastfetch
+
 apt-get update
 
 # Install PHP, but I don't need a web server.
@@ -27,12 +29,16 @@ apt-get install \
     default-jdk \
     docker.io \
     docker-compose \
-    filezilla \
+    fastfetch \
     ffmpeg \
+    filezilla \
+    flameshot \
+    fzf \
     gimp \
     gimp-plugin-registry \
     git \
     gitk \
+    gnome-tweak-tool \
     goaccess \
     htop \
     imagemagick \
@@ -46,7 +52,6 @@ apt-get install \
     libyaml-dev \
     markdown \
     meld \
-    neofetch \
     openscad \
     php-bcmath \
     php-curl \
@@ -54,6 +59,7 @@ apt-get install \
     php-xml \
     php-zip \
     python3 \
+    ripgrep \
     ruby \
     ruby-dev \
     rustc \
