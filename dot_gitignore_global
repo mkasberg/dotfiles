@@ -3,9 +3,14 @@
 # IntelliJ IDE settings
 /.idea/
 
-# Scala bsp folders
-/.bloop/
+# VS Code settings
+/.vscode/
+
+# Scala BSP/Metals folders
+.bloop/
 /.bsp/
+/.metals/
+metals.sbt
 
 # SBT per-project config
 .sbtopts
