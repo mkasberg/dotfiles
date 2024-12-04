@@ -106,6 +106,9 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Alias, e.g. "how do I list the contents of a zip without extracting it"
+alias how="gh copilot suggest -t shell how"
+
 # Android SDK platform-tools shadows SQLite3 with a worse version.
 # Alias the good version here.
 if [ -x "/usr/bin/sqlite3" ]; then
