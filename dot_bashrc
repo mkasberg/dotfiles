@@ -155,6 +155,10 @@ if [ -e "$HOME/.bloop/bash/bloop" ]; then
     . $HOME/.bloop/bash/bloop
 fi
 
+# Homebrew Linuxbrew
+if [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # NVM
 # Do this in both .profile (for GUIs like RubyMine)

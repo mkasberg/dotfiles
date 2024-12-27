@@ -167,6 +167,11 @@ alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# Homebrew Linuxbrew
+if [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # Uncomment to print startup profiling.
 # Don't forget to also uncomment the line to begin profiling near the top.
 # zprof
