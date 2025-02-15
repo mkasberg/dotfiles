@@ -43,4 +43,7 @@
 # resize-overlay-duration = 4s 200ms
 
 window-width = 140
-window-height = 38
+window-height = 40
+
+font-family = UbuntuMono Nerd Font Mono
+font-size = 13
