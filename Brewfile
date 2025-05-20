@@ -6,6 +6,7 @@ cask "ghostty"
 cask "gimp"
 cask "iterm2"
 cask "meld"
+cask "rectangle"
 cask "spotify"
 cask "visual-studio-code"
 
