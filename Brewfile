@@ -1,5 +1,3 @@
-tap "homebrew/bundle"
-
 cask "balenaetcher"
 cask "bitwarden"
 cask "docker"
