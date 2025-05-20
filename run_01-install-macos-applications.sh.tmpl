@@ -1,6 +1,9 @@
 {{- if and (.install_apps) (eq .chezmoi.os "darwin") -}}
 #!/usr/bin/env bash
 
+# Install Homebrew (safe to re-run)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 brew bundle install --file "$HOME/Brewfile"
 {{ end -}}
 
