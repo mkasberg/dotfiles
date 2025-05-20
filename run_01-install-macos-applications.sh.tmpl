@@ -2,7 +2,7 @@
 #!/usr/bin/env bash
 
 # Install Homebrew (safe to re-run)
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew --version || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew bundle install --file "$HOME/dotfiles/Brewfile"
 {{ end -}}
