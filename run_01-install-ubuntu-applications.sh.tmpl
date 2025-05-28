@@ -11,8 +11,6 @@ if [ $EUID != 0 ]; then
     exit $?
 fi
 
-add-apt-repository -y ppa:zhangsongcui3371/fastfetch
-
 apt-get update
 
 # Install PHP, but I don't need a web server.
