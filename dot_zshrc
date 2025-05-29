@@ -77,7 +77,7 @@ NVM_AUTOLOAD=1
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(docker docker-compose git gh kubectl nvm)
+plugins=(docker docker-compose git gh kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
