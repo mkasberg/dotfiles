@@ -69,9 +69,6 @@ zstyle ':omz:update' frequency 30
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM="${HOME}/.zsh_custom"
 
-# NVM Plugin Settings (see the plugin README).
-NVM_AUTOLOAD=1
-
 # Edit fpath *before* sourcing oh-my-zsh for compinit
 # Bloop Completions
 fpath=($HOME/.bloop/zsh $fpath)
