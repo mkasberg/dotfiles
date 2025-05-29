@@ -72,6 +72,10 @@ ZSH_CUSTOM="${HOME}/.zsh_custom"
 # NVM Plugin Settings (see the plugin README).
 NVM_AUTOLOAD=1
 
+# Edit fpath *before* sourcing oh-my-zsh for compinit
+# Bloop Completions
+fpath=($HOME/.bloop/zsh $fpath)
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -150,10 +154,6 @@ if [ -d "$HOME/.fly" ]; then
     export PATH="$FLYCTL_INSTALL/bin:$PATH"
 fi
 
-# Bloop Completions
-autoload -U compinit
-fpath=($HOME/.bloop/zsh $fpath)
-compinit
 
 # Unlock Bitwarden in one command
 bw-unlock() {
