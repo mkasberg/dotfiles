@@ -132,14 +132,6 @@ fi
 # NPM/Yarn User-installed Packages
 export PATH="$PATH:$HOME/.npm-packages/bin"
 
-# Add RBEnv
-if [ -d "$HOME/.rbenv/bin" ]; then
-    PATH="$HOME/.rbenv/bin:$PATH"
-    eval "$(rbenv init - zsh)"
-elif command -v rbenv &> /dev/null; then
-    eval "$(rbenv init - zsh)"
-fi
-
 # Put Coursier on PATH if it exists
 if [ -d "$HOME/.local/share/coursier/bin" ]; then
     PATH="$HOME/.local/share/coursier/bin:$PATH"

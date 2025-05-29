@@ -1,5 +1,6 @@
 [tools]
 node = "lts"
+ruby = "3.3.0"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "ruby"]

@@ -19,17 +19,4 @@ if [ ! -e /usr/bin/code -a ! -e /snap/bin/code ]; then
     echo ""
 fi
 
-#RBEnv
-if [ ! -d ~/.rbenv ]; then
-    echo ""
-    echo "RBEnv Not Found!"
-    echo "You should manually install RBEnv:"
-    echo "https://github.com/rbenv/rbenv#basic-git-checkout"
-    echo ""
-else
-    echo ""
-    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-doctor | bash
-    echo ""
-fi
-
 {{ end -}}

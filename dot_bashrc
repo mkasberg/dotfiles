@@ -144,12 +144,6 @@ fi
 # NPM/Yarn User-installed Packages
 export PATH="$PATH:$HOME/.npm-packages/bin"
 
-# Add RBEnv
-if [ -d "$HOME/.rbenv/bin" ]; then
-    PATH="$HOME/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-fi
-
 # Bloop Complpetion
 if [ -e "$HOME/.bloop/bash/bloop" ]; then
     . $HOME/.bloop/bash/bloop
