@@ -33,7 +33,3 @@ fi
 if [ -d "$HOME/.local/share/coursier/bin" ]; then
     PATH="$HOME/.local/share/coursier/bin:$PATH"
 fi
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
