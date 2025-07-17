@@ -2,6 +2,17 @@
 
 Managed with [chezmoi](https://www.chezmoi.io) ❤️
 
+## Principles
+
+Inspired by [The Primeagen](https://youtu.be/ZH3iKbEiks0?si=F51e9OU5UyxxtnbL&t=144):
+
+ - Try not to stray from defaults. Hopefully, all the non-defaults in my
+   dotfiles have a good reason for being there.
+ - Make the experience better. Don't just save a keystroke with an alias where
+   [TAB] would suffice. Build real functionality.
+
+I'm still working on "never search with your eyes", but I'm headed that way 😁.
+
 ## Setup dotfiles on a new machine
 
   1. (Optional) Install [Bitwarden](https://bitwarden.com/) and login if you plan to install secrets.
