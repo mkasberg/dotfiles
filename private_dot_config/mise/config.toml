@@ -1,5 +1,7 @@
 [tools]
+bitwarden = "latest"
 node = "lts"
+"npm:@google/gemini-cli" = "latest"
 ruby = "3.3.0"
 
 [settings]
