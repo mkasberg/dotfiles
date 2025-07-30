@@ -1,0 +1,46 @@
+{{- if .store_secrets -}}
+#!/bin/bash
+set -e
+
+if [[ $EUID -ne 0 ]]; then
+  SUDO='sudo'
+else
+  SUDO=''
+fi
+
+# Ensure mise is installed
+if ! command -v mise &> /dev/null
+then
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        echo "❌ This script is not yet compatible with macOS"
+        echo "❌ Skipping mise & Bitwarden installation"
+        exit 1
+    fi
+    echo "🔧 Mise not yet installed. Installing..."
+    # Mise Apt Repo
+    # https://mise.jdx.dev/installing-mise.html#apt
+    $SUDO apt-get update -y && $SUDO apt-get install -y gpg wget curl
+    if [ ! -f /etc/apt/sources.list.d/mise.list ]; then
+        $SUDO install -dm 755 /etc/apt/keyrings
+        wget -qO - https://mise.jdx.dev/gpg-key.pub | gpg --dearmor | $SUDO tee /etc/apt/keyrings/mise-archive-keyring.gpg 1> /dev/null
+        echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg arch=amd64] https://mise.jdx.dev/deb stable main" | $SUDO tee /etc/apt/sources.list.d/mise.list
+        $SUDO apt-get update
+    fi
+    $SUDO apt-get install -y mise
+    echo "✅ Mise installed successfully."
+fi
+
+# Ensure logged in to Bitwarden
+bw_status="$(mise exec bitwarden -- bw status)"
+if echo "$bw_status" | grep -q '"status":"unlocked"'; then
+    echo "✅ Bitwarden is already unlocked."
+elif echo "$bw_status" | grep -q '"status":"locked"'; then
+    echo "🔐 Unlocking Bitwarden..."
+    export BW_SESSION=$(mise exec bitwarden -- bw unlock --raw)
+    echo "✅ Bitwarden unlocked."
+else
+    echo "🔑 Logging in to Bitwarden..."
+    export BW_SESSION=$(mise exec bitwarden -- bw login --raw)
+    echo "✅ Bitwarden login successful."
+fi
+{{ end -}}
