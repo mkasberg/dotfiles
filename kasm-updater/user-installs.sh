@@ -1,22 +1,24 @@
-{{- if .install_apps -}}
-#!/usr/bin/env bash
+#!/bin/bash
 
 ##
 # Script to install Mike's user (non-root) apps on Ubuntu.
 ##
 
-{{ if eq .chezmoi.os "linux" }}
-# Default Shell
-grep mkasberg /etc/passwd | grep /usr/bin/zsh > /dev/null
-if [ $? -ne 0 ]; then
-    echo "Changing user shell to zsh..."
-    chsh -s /usr/bin/zsh
+set -e
+
+if [[ ! "$(uname -s)" == "Darwin" ]]; then
+    # Default Shell
+    grep "$USER" /etc/passwd | grep /usr/bin/zsh > /dev/null
+    if [ $? -ne 0 ]; then
+        echo "Changing user shell to zsh..."
+        chsh -s /usr/bin/zsh
+    fi
 fi
-{{ end }}
 
 # Oh My Zsh
 if [ -d "${HOME}/.oh-my-zsh" ]; then
-    echo "Oh My Zsh already installed at: ${HOME}/.oh-my-zsh"
+    echo "✅ Oh My Zsh is at: ${HOME}/.oh-my-zsh"
+    omz update
 else
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 fi
@@ -28,5 +30,3 @@ fi
 #if [ $? -ne 0 ]; then
 #    npm install -g tldr
 #fi
-
-{{ end -}}

@@ -1,43 +1,44 @@
-{{- if and (.install_apps) (eq .chezmoi.os "linux") -}}
-#!/usr/bin/env bash
+#!/bin/bash
 
 ##
-# Script to install Mike's applications for Ubuntu.
+# Script to install & update Mike's applications for Ubuntu.
 ##
 
-# Run this as sudo!
-if [ $EUID != 0 ]; then
-    sudo "$0" "$@"
-    exit $?
+set -e
+
+if [[ $EUID -ne 0 ]]; then
+  SUDO='sudo'
+else
+  SUDO=''
 fi
 
-apt-get update
+$SUDO apt update
+$SUDO apt upgrade
 
 # Install tools used later
-apt-get install gpg sudo wget curl
+$SUDO apt install -y gpg sudo wget curl
 
 # Mise Apt Repo
 # https://mise.jdx.dev/installing-mise.html#apt
 if [ ! -f /etc/apt/sources.list.d/mise.list ]; then
-    install -dm 755 /etc/apt/keyrings
-    wget -qO - https://mise.jdx.dev/gpg-key.pub | gpg --dearmor | tee /etc/apt/keyrings/mise-archive-keyring.gpg 1> /dev/null
-    echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg arch=amd64] https://mise.jdx.dev/deb stable main" | tee /etc/apt/sources.list.d/mise.list
-    apt-get update
+    $SUDO install -dm 755 /etc/apt/keyrings
+    wget -qO - https://mise.jdx.dev/gpg-key.pub | gpg --dearmor | $SUDO tee /etc/apt/keyrings/mise-archive-keyring.gpg 1> /dev/null
+    echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg arch=amd64] https://mise.jdx.dev/deb stable main" | $SUDO tee /etc/apt/sources.list.d/mise.list
+    $SUDO apt update
 fi
 
 # Install PHP, but I don't need a web server.
-apt-get install --no-install-recommends php
+$SUDO apt install -y --no-install-recommends php
 
-# Install Applications with apt-get
-# Note for docker:
-# https://stackoverflow.com/questions/45023363/what-is-docker-io-in-relation-to-docker-ce-and-docker-ee/57678382#57678382
-apt-get install \
+# Install Applications with apt
+$SUDO apt install \
     audacity \
     borgbackup \
     build-essential \
     curl \
     default-jdk \
     docker.io \
+    docker-buildx \
     docker-compose \
     fastfetch \
     ffmpeg \
@@ -87,13 +88,9 @@ apt-get install \
     zsh
 
 # Install snap packages
-which snap > /dev/null
-if [ $? -eq 0 ]; then
-    snap install bw
+if command -v snap &> /dev/null; then
     snap install --classic intellij-idea-community
     snap install localsend
     snap install --classic nvim
     snap install spotify
 fi
-
-{{ end -}}

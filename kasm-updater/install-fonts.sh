@@ -1,8 +1,6 @@
-{{- if and (.install_apps) (eq .chezmoi.os "linux") -}}
-#!/usr/bin/env bash
+#!/bin/bash
 
-echo "Installing Fonts..."
-mkdir -p ~/.local/share/fonts
+set -e
 
 # See https://github.com/basecamp/omakub/blob/448b3290a91a47dd066106ceaaefd9256e11c92e/bin/omakub-font
 
@@ -23,5 +21,9 @@ ensure_font() {
   fi
 }
 
-ensure_font "UbuntuMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/UbuntuMono.zip" "ttf"
-{{ end -}}
+if [[ ! "$(uname -s)" == "Darwin" ]]; then
+  echo "Installing Fonts..."
+  mkdir -p ~/.local/share/fonts
+
+  ensure_font "UbuntuMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/UbuntuMono.zip" "ttf"
+fi

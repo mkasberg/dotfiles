@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+source "$SCRIPT_DIR/../kasm-updater/kasm_ascii.sh"
+
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  source "$SCRIPT_DIR/../kasm-updater/install-macos-applications.sh"
+else
+  source "$SCRIPT_DIR/../kasm-updater/install-ubuntu-applications.sh"
+fi
+
+source "$SCRIPT_DIR/../kasm-updater/user-installs.sh"
+source "$SCRIPT_DIR/../kasm-updater/install-fonts.sh"
