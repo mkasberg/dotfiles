@@ -6,15 +6,11 @@
 
 set -e # exit on error
 
-install_apps=N
 quiet=N
 
 # See https://man7.org/linux/man-pages/man1/getopts.1p.html
 while getopts aq opt; do
   case $opt in
-    a)
-      install_apps=y
-      ;;
     q)
       quiet=y
       ;;
@@ -40,7 +36,7 @@ fi
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 # exec: replace current process with chezmoi init
 if [ "$quiet" = "y" ]; then
-  exec "$chezmoi" init --apply "--source=$script_dir" --promptString "Email for .gitconfig=kasberg.mike@gmail.com,Store secrets on this machine (y/N)=N,Install applications (y/N)=$install_apps"
+  exec "$chezmoi" init --apply "--source=$script_dir" --promptString "Email for .gitconfig=kasberg.mike@gmail.com,Store secrets on this machine (y/N)=N"
 else
   exec "$chezmoi" init --apply "--source=$script_dir"
 fi

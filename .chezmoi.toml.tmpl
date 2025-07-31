@@ -7,11 +7,9 @@
 
 {{- $email := "" -}}
 {{- $storeSecrets := false -}}
-{{- $installApps := false -}}
 {{- if $codespaces -}}
   {{- $email := "kasberg.mike@gmail.com" -}}
   {{- $storeSecrets := false -}}
-  {{- $installApps := false -}}
 {{- else -}}
   {{- if (hasKey . "email") -}}
     {{- $email = .email -}}
@@ -25,12 +23,6 @@
   {{- else -}}
     {{- $storeSecrets = eq (promptString "Store secrets on this machine (y/N)") "y" -}}
   {{- end -}}
-  
-  {{- if (hasKey . "install_apps") -}}
-    {{- $installApps = .install_apps -}}
-  {{- else -}}
-    {{- $installApps = eq (promptString "Install applications (y/N)") "y" -}}
-  {{- end -}}
 {{- end -}}
 
 sourceDir = {{ .chezmoi.sourceDir | quote }}
@@ -40,5 +32,4 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
 [data]
   email = {{ $email | quote }}
   store_secrets = {{ $storeSecrets }}
-  install_apps = {{ $installApps }}
   codespaces = {{ $codespaces }}
