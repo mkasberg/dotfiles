@@ -1,4 +1,7 @@
-install.sh
 LICENSE
 README.md
+
+Dockerfile
+
+install.sh
 test.sh
