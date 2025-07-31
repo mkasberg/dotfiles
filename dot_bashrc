@@ -67,6 +67,7 @@ else
     # Modified to support git status in PS1.
     # Also modified by Mike to function better.
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    source /usr/lib/git-core/git-sh-prompt
     PS1='\n${debian_chroot:+($debian_chroot)}\u:\w$(__git_ps1 " (%s)")\n\$ '
 fi
 unset color_prompt force_color_prompt
