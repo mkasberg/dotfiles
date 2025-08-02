@@ -89,8 +89,8 @@ $SUDO apt install \
 
 # Install snap packages
 if command -v snap &> /dev/null; then
-    snap install --classic intellij-idea-community
-    snap install localsend
-    snap install --classic nvim
-    snap install spotify
+    $SUDO snap install --classic intellij-idea-community
+    $SUDO snap install localsend
+    $SUDO snap install --classic nvim
+    $SUDO snap install spotify
 fi
