@@ -4,9 +4,19 @@
 
 set -e
 
-docker build -t dotfiles-test:latest .
+DOCKERFILE="Dockerfile"
+IMAGE_NAME="dotfiles-test:latest"
+USERNAME="ubuntu"
+
+if [[ "$1" == "--arch" ]]; then
+  DOCKERFILE="Dockerfile.arch"
+  IMAGE_NAME="dotfiles-test:arch"
+  USERNAME="dev"
+fi
+
+docker build -t "$IMAGE_NAME" -f "$DOCKERFILE" .
 
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 
-docker run --rm -it -v "$script_dir":/home/kasm/dotfiles dotfiles-test:latest bash -c 'sh /home/kasm/dotfiles/install.sh && bash'
+docker run --rm -it -v "$script_dir:/home/$USERNAME/dotfiles" "$IMAGE_NAME" bash -c "sh /home/$USERNAME/dotfiles/install.sh && bash"

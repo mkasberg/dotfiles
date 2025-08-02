@@ -1,0 +1,28 @@
+FROM archlinux:latest
+
+ARG USERNAME=dev
+
+ENV TZ=America/Denver
+RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime
+
+RUN pacman -Syu --noconfirm && \
+    pacman -S --noconfirm \
+        ca-certificates \
+        curl \
+        dialog \
+        git \
+        ncurses \
+        sudo \
+        wget \
+        zsh \
+    && echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME \
+    && pacman -Scc --noconfirm
+
+ENV TERM=xterm-256color
+ENV PATH="/home/$USERNAME:$PATH"
+
+# Create user and switch to it
+RUN useradd -m -s /bin/zsh $USERNAME
+USER $USERNAME
+WORKDIR /home/$USERNAME
