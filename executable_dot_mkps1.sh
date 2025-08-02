@@ -8,7 +8,11 @@
 # Each function should leave the colors in a clean state (e.g. call reset if they changed any colors).
 
 # For Git PS1
-source /usr/lib/git-core/git-sh-prompt;
+if [ -f /usr/lib/git-core/git-sh-prompt ]; then
+    source /usr/lib/git-core/git-sh-prompt
+elif [ -f /usr/share/git/completion/git-prompt.sh ]; then
+    source /usr/share/git/completion/git-prompt.sh
+fi
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM="verbose"
 
