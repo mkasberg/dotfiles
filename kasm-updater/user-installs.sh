@@ -23,7 +23,7 @@ else
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 fi
 
-# TODO call mise here to install global tools
+mise upgrade
 
 # TLDR Pages https://tldr.sh/
 #which tldr > /dev/null
