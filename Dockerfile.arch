@@ -20,7 +20,7 @@ RUN pacman -Syu --noconfirm && \
     && pacman -Scc --noconfirm
 
 ENV TERM=xterm-256color
-ENV PATH="/home/$USERNAME:$PATH"
+ENV PATH="/home/$USERNAME/bin:$PATH"
 
 # Create user and switch to it
 RUN useradd -m -s /bin/zsh $USERNAME
