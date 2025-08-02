@@ -8,7 +8,8 @@ source "$SCRIPT_DIR/../kasm-updater/kasm_ascii.sh"
 if [[ "$(uname -s)" == "Darwin" ]]; then
   source "$SCRIPT_DIR/../kasm-updater/install-macos-applications.sh"
 else
-  source "$SCRIPT_DIR/../kasm-updater/install-ubuntu-applications.sh"
+  # Don't source this one - it escalates with sudo and we want to isolate that.
+  bash "$SCRIPT_DIR/../kasm-updater/install-ubuntu-applications.sh"
 fi
 
 source "$SCRIPT_DIR/../kasm-updater/user-installs.sh"

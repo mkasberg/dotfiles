@@ -6,32 +6,32 @@
 
 set -e
 
-if [[ $EUID -ne 0 ]]; then
-  SUDO='sudo'
-else
-  SUDO=''
+# Run this as sudo!
+if [ $EUID != 0 ]; then
+    sudo "$0" "$@"
+    exit $?
 fi
 
-$SUDO apt update
-$SUDO apt upgrade
+apt update
+apt upgrade
 
 # Install tools used later
-$SUDO apt install -y gpg sudo wget curl
+apt install -y gpg sudo wget curl
 
 # Mise Apt Repo
 # https://mise.jdx.dev/installing-mise.html#apt
 if [ ! -f /etc/apt/sources.list.d/mise.list ]; then
-    $SUDO install -dm 755 /etc/apt/keyrings
-    wget -qO - https://mise.jdx.dev/gpg-key.pub | gpg --dearmor | $SUDO tee /etc/apt/keyrings/mise-archive-keyring.gpg 1> /dev/null
-    echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg arch=amd64] https://mise.jdx.dev/deb stable main" | $SUDO tee /etc/apt/sources.list.d/mise.list
-    $SUDO apt update
+    install -dm 755 /etc/apt/keyrings
+    wget -qO - https://mise.jdx.dev/gpg-key.pub | gpg --dearmor | tee /etc/apt/keyrings/mise-archive-keyring.gpg 1> /dev/null
+    echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg arch=amd64] https://mise.jdx.dev/deb stable main" | tee /etc/apt/sources.list.d/mise.list
+    apt update
 fi
 
 # Install PHP, but I don't need a web server.
-$SUDO apt install -y --no-install-recommends php
+apt install -y --no-install-recommends php
 
 # Install Applications with apt
-$SUDO apt install \
+apt install \
     audacity \
     borgbackup \
     build-essential \
@@ -89,8 +89,8 @@ $SUDO apt install \
 
 # Install snap packages
 if command -v snap &> /dev/null; then
-    $SUDO snap install --classic intellij-idea-community
-    $SUDO snap install localsend
-    $SUDO snap install --classic nvim
-    $SUDO snap install spotify
+    snap install --classic intellij-idea-community
+    snap install localsend
+    snap install --classic nvim
+    snap install spotify
 fi

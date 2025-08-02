@@ -2,6 +2,7 @@
 bitwarden = "latest"
 node = "22.16"
 "npm:@google/gemini-cli" = "latest"
+"npm:tldr" = "latest"
 ruby = "3.3.0"
 usage = "latest"
 

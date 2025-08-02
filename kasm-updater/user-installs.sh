@@ -24,9 +24,3 @@ else
 fi
 
 mise upgrade
-
-# TLDR Pages https://tldr.sh/
-#which tldr > /dev/null
-#if [ $? -ne 0 ]; then
-#    npm install -g tldr
-#fi
