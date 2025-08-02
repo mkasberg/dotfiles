@@ -2,6 +2,7 @@ LICENSE
 README.md
 
 Dockerfile
+Dockerfile.arch
 
 install.sh
 test.sh
