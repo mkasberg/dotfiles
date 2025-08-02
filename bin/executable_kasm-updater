@@ -6,11 +6,11 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 source "$SCRIPT_DIR/../kasm-updater/kasm_ascii.sh"
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  source "$SCRIPT_DIR/../kasm-updater/install-macos-applications.sh"
+  source "$SCRIPT_DIR/../kasm-updater/install_macos_applications.sh"
 else
   # Don't source this one - it escalates with sudo and we want to isolate that.
-  bash "$SCRIPT_DIR/../kasm-updater/install-ubuntu-applications.sh"
+  bash "$SCRIPT_DIR/../kasm-updater/install_ubuntu_applications.sh"
 fi
 
-source "$SCRIPT_DIR/../kasm-updater/user-installs.sh"
-source "$SCRIPT_DIR/../kasm-updater/install-fonts.sh"
+source "$SCRIPT_DIR/../kasm-updater/user_installs.sh"
+source "$SCRIPT_DIR/../kasm-updater/install_fonts.sh"
