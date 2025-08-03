@@ -13,7 +13,8 @@ else
     bash "$SCRIPT_DIR/../kasm-updater/install_ubuntu_applications.sh"
   elif command -v pacman &> /dev/null; then
     # Don't source this one - it escalates with sudo and we want to isolate that.
-    bash "$SCRIPT_DIR/../kasm-updater/install_arch_applications.sh"
+    bash "$SCRIPT_DIR/../kasm-updater/install_arch_pacman_applications.sh"
+    source "$SCRIPT_DIR/../kasm-updater/install_arch_yay_applications.sh"
   else
     echo "Unsupported Linux distribution. Neither apt nor pacman detected."
     exit 1
