@@ -141,6 +141,9 @@ fi
 # Trim the number of directories in PS1 \w:
 #export PROMPT_DIRTRIM=3
 
+# Mise
+eval "$(mise activate bash)"
+
 # Add Go
 if [ -d "/usr/local/go/bin" ]; then
     PATH="/usr/local/go/bin:$PATH"
