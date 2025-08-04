@@ -8,11 +8,10 @@ set -e
 
 if [[ ! "$(uname -s)" == "Darwin" ]]; then
     # Default Shell
-    grep "$USER" /etc/passwd | grep /usr/bin/zsh > /dev/null
-    if [ $? -ne 0 ]; then
+    grep "$USER" /etc/passwd | grep /usr/bin/zsh > /dev/null || {
         echo "Changing user shell to zsh..."
         chsh -s /usr/bin/zsh
-    fi
+    }
 fi
 
 # Oh My Zsh
