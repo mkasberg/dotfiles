@@ -23,7 +23,10 @@ colors=(
 )
 
 # Split the ASCII art into lines
-mapfile -t lines <<<"$ascii_art"
+lines=()
+while IFS= read -r line; do
+  lines+=("$line")
+done <<< "$ascii_art"
 
 echo ""
 # Print each line with the corresponding color
