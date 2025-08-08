@@ -17,3 +17,6 @@ metals.sbt
 
 # Hidden macOS files
 .DS_Store
+
+# Claude
+/.claude/settings.local.json
