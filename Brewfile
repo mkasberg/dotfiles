@@ -1,5 +1,4 @@
 cask "balenaetcher"
-cask "bitwarden"
 cask "docker"
 cask "firefox"
 cask "ghostty"
