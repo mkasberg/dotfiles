@@ -35,9 +35,7 @@ bw_status="$(mise exec bitwarden -- bw status)"
 if echo "$bw_status" | grep -q '"status":"unlocked"'; then
     echo "✅ Bitwarden is already unlocked."
 elif echo "$bw_status" | grep -q '"status":"locked"'; then
-    echo "🔐 Unlocking Bitwarden..."
-    export BW_SESSION=$(mise exec bitwarden -- bw unlock --raw)
-    echo "✅ Bitwarden unlocked."
+    echo "🔐 Bitwarden locked. Chezmoi will unlock the vault..."
 else
     echo "🔑 Logging in to Bitwarden..."
     export BW_SESSION=$(mise exec bitwarden -- bw login --raw)
