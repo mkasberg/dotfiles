@@ -1,5 +1,5 @@
 cask "balenaetcher"
-cask "docker"
+cask "docker-desktop"
 cask "firefox"
 cask "ghostty"
 cask "gimp"
