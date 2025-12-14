@@ -71,7 +71,7 @@ ZSH_CUSTOM="${HOME}/.zsh_custom"
 
 # Edit fpath *before* sourcing oh-my-zsh for compinit
 # Bloop Completions
-fpath=($HOME/.bloop/zsh $fpath)
+#fpath=($HOME/.bloop/zsh $fpath)
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
