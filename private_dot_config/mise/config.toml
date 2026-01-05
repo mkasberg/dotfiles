@@ -1,11 +1,11 @@
 [tools]
 bitwarden = "latest"
+"github:anomalyco/opencode" = "latest"
 node = "22.16"
 "npm:@google/gemini-cli" = "latest"
-"npm:opencode-ai" = "latest"
 "npm:tldr" = "latest"
 ruby = "3.3.0"
 usage = "latest"
 
 [settings]
-idiomatic_version_file_enable_tools = ["node", "ruby"]
+idiomatic_version_file_enable_tools = ["node", "python", "ruby"]
