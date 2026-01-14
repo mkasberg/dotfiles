@@ -57,6 +57,7 @@ apt install \
     filezilla \
     flameshot \
     fontconfig \
+    fonts-hack-ttf \
     fzf \
     gh \
     gimp \
