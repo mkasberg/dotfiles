@@ -45,5 +45,7 @@
 window-width = 140
 window-height = 40
 
-font-family = UbuntuMono Nerd Font Mono
+{{ if ne .chezmoi.os "darwin" -}}
+font-family = Ubuntu Mono
 font-size = 13
+{{ end -}}
