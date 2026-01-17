@@ -24,6 +24,8 @@ ensure_font() {
 if [[ ! "$(uname -s)" == "Darwin" ]]; then
   echo "Installing Fonts..."
   mkdir -p ~/.local/share/fonts
-
-  ensure_font "UbuntuMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/UbuntuMono.zip" "ttf"
+  ensure_font "JetBrainsMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip" "ttf"
+  ensure_font "FiraCode Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip" "ttf"
+  ensure_font "SauceCodePro Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/SourceCodePro.zip" "ttf"
+  ensure_font "BlexMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/IBMPlexMono.zip" "ttf"
 fi
