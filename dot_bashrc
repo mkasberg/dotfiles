@@ -142,7 +142,9 @@ fi
 #export PROMPT_DIRTRIM=3
 
 # Mise
-eval "$(mise activate bash)"
+if command -v mise >/dev/null; then
+    eval "$(mise activate bash)"
+fi
 
 # Add Go
 if [ -d "/usr/local/go/bin" ]; then

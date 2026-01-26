@@ -80,7 +80,9 @@ ZSH_CUSTOM="${HOME}/.zsh_custom"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(docker docker-compose git gh kubectl mise)
 
-source $ZSH/oh-my-zsh.sh
+if [ -d "$ZSH" ]; then
+    source $ZSH/oh-my-zsh.sh
+fi
 
 # User configuration
 
