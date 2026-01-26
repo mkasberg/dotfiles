@@ -15,27 +15,18 @@ I'm still working on "never search with your eyes", but I'm headed that way 😁
 
 ## Setup dotfiles on a new machine
 
-  1. (Optional) Install [Bitwarden](https://bitwarden.com/) and login if you plan to install secrets.
+ 1. [Install Chezmoi](https://www.chezmoi.io/docs/install/) to `~/bin` and
+    install dotfiles to `~/dotfiles`.
+    ```
+    sh -c "$(curl -fsLS git.io/chezmoi)" -- -b "$HOME/bin" init --apply -S ~/dotfiles mkasberg
+    ```
 
-     **Linux**
-     ```
-     sudo snap install bw
-     bw login
-     ```
-
-     **macOS**
-     ```
-     curl -o ~/bw.zip -L 'https://vault.bitwarden.com/download/?app=cli&platform=macos'
-     sudo unzip -d /usr/local/bin ~/bw.zip
-     rm ~/bw.zip
-     bw login
-     ```
-
-  2. [Install chezmoi](https://www.chezmoi.io/docs/install/) to `~/bin` and
-     install dotfiles to `~/dotfiles`.
-     ```
-     sh -c "$(curl -fsLS git.io/chezmoi)" -- -b "$HOME/bin" init --apply -S ~/dotfiles mkasberg
-     ```
+ 2. (Optional) Install secrets. (The kasm-secrets script is installed with
+    dotfiles.)
+    
+    ```
+    kasm-secrets install
+    ```
 
 Done! To keep up to date in the future:
 
@@ -48,13 +39,13 @@ Want to check the diff before applying changes?
 ## Notable Features
 
 * Cross-platform (macOS & Linux)
-* Scripts to install [system](run_once_01-install-ubuntu-applications.sh.tmpl)
-  and [user](run_once_02-user-installs.sh.tmpl) applications and preferences
+* Scripts to install [system](kasm-updater/install_ubuntu_applications.sh)
+  and [user](kasm-updater/user_installs.sh) applications and preferences
 * Custom [PS1 Bash Prompt](https://github.com/mkasberg/dotfiles/blob/1cf2a9c5787fa326ff2228414117beb479145147/dot_bashrc#L63-L64)
 * Custom [Oh My Zsh Theme](dot_zsh_custom/themes/mkasberg.zsh-theme)
 * Set the default shell to [zsh](https://github.com/mkasberg/dotfiles/blob/1cf2a9c5787fa326ff2228414117beb479145147/run_once_02-user-installs.sh.tmpl#L8-L13) on Ubuntu
 * Per-machine [git email](https://github.com/mkasberg/dotfiles/blob/1cf2a9c5787fa326ff2228414117beb479145147/dot_gitconfig.tmpl#L4), set once during setup
-* Optionally (per machine) install [secrets from Bitwarden](https://github.com/mkasberg/dotfiles/blob/1cf2a9c5787fa326ff2228414117beb479145147/.chezmoi.toml.tmpl#L22-L27)
+* Optionally (per machine) install [secrets from Bitwarden](bin/executable_kasm-secrets)
 * [Install script](install.sh) for [VS Code Remote Containers Dotfiles](https://code.visualstudio.com/docs/remote/containers#_personalizing-with-dotfile-repositories)
 * [Vim filetypes for chezmoi](dot_vim/ftdetect/chezmoi.vim)
 
@@ -69,15 +60,10 @@ dotfiles and copying things you like!
 
 ## Testing
 
-Want to test a fresh install on a new machine? A dev container in Docker is
-great for this because it comes with a non-root user. Use the Docker command
-below to get into a fresh, disposable testing environment, then run the
-installation steps from above.
-
-    docker run --rm -it --user vscode --workdir /home/vscode mcr.microsoft.com/devcontainers/base:ubuntu
-
-For convenience, `./test.sh` use the above to install dotfiles from the current
-working directory and drop you into a prompt.
+Want to test a fresh install on a new machine? A Docker container with a
+non-root user is great for this. For convenience, `./test.sh` will install
+dotfiles from the current working directory and drop you into a prompt in a
+clean, disposable Docker environment.
 
 ## Security
 

@@ -6,22 +6,13 @@
 {{- $codespaces:= env "REMOTE_CONTAINERS" | not | not -}}
 
 {{- $email := "" -}}
-{{- $storeSecrets := false -}}
 {{- if $codespaces -}}
   {{- $email := "kasberg.mike@gmail.com" -}}
-  {{- $storeSecrets := false -}}
 {{- else -}}
-  {{- if (hasKey . "email") -}}
+  {{- if hasKey . "email" -}}
     {{- $email = .email -}}
   {{- else -}}
     {{- $email = promptString "Email for .gitconfig" -}}
-  {{- end -}}
-  
-  {{- /* If this is false, don't use anything from bitwarden. */ -}}
-  {{- if (hasKey . "store_secrets") -}}
-    {{- $storeSecrets = .store_secrets -}}
-  {{- else -}}
-    {{- $storeSecrets = eq (promptString "Store secrets on this machine (y/N)") "y" -}}
   {{- end -}}
 {{- end -}}
 
@@ -31,7 +22,6 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
   command = "meld"
 [data]
   email = {{ $email | quote }}
-  store_secrets = {{ $storeSecrets }}
   codespaces = {{ $codespaces }}
 [bitwarden]
   unlock = "auto"

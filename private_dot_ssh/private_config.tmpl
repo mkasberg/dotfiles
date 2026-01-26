@@ -1,4 +1,4 @@
-{{- if .store_secrets -}}
+{{- if hasKey . "kasm_secrets" -}}
 {{- if eq .chezmoi.os "darwin" -}}
 Host *
  AddKeysToAgent yes
@@ -11,10 +11,10 @@ Host bitbucket.org
  IdentityFile ~/.ssh/id_rsa
 
 Host ssh.nyc1.nearlyfreespeech.net
- User {{ (bitwarden "item" "d0288e58-57d0-425f-9222-ab9901367767").notes }}
+ User {{ .kasm_secrets.ssh.nfs_user }}
  IdentityFile ~/.ssh/id_rsa
 
 Host catholicstuffpodcast.com
- User {{ (bitwarden "item" "5bceb80e-b91a-40f5-98b6-ab9901369978").notes }}
+ User {{ .kasm_secrets.ssh.csysk_user }}
  IdentityFile ~/.ssh/id_rsa
 {{ end -}}

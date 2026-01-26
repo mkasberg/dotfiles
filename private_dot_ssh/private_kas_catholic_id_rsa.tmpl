@@ -1,3 +1,3 @@
-{{- if .store_secrets -}}
-{{ (bitwarden "item" "7020a3af-11aa-4a78-9e98-ade7002b86f2").notes }}
+{{- if hasKey . "kasm_secrets" -}}
+{{ .kasm_secrets.ssh.kas_catholic_id_rsa }}
 {{ end -}}

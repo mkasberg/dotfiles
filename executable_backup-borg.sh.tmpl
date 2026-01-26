@@ -1,4 +1,4 @@
-{{- if .store_secrets -}}
+{{- if hasKey . "kasm_secrets" -}}
 #!/bin/bash
 # Backup a folder to a remote address using borg.
 # Usage: backup-borg.sh
@@ -6,7 +6,7 @@
 
 set -eu
 export BORG_REPO='3549@usw-s003.rsync.net:ender'
-export BORG_PASSPHRASE='{{ (bitwarden "item" "abe61755-1417-44f6-90f7-aba8018a5b6c").notes }}'
+export BORG_PASSPHRASE='{{ .kasm_secrets.borg.passphrase }}'
 export BORG_REMOTE_PATH=borg1
 
 /usr/bin/borg create --progress --exclude-from /home/mkasberg/backup-excludes.txt ::$(hostname)_$(date -Iseconds) /home/mkasberg
