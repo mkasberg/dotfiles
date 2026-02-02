@@ -23,7 +23,7 @@ __mkps1_exitcode() {
 }
 
 __mkps1_ssh() {
-    if [ ! -z "$SSH_TY" ]; then
+    if [ ! -z "$SSH_TTY" ]; then
         echo "%K{45}%F{11} SSH %f%k"
     fi
 }
