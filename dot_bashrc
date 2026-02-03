@@ -146,6 +146,11 @@ if command -v mise >/dev/null; then
     eval "$(mise activate bash)"
 fi
 
+# OpenClaw Completions
+if command -v openclaw &> /dev/null; then
+    source <(openclaw completion --shell bash)
+fi
+
 # Add Go
 if [ -d "/usr/local/go/bin" ]; then
     PATH="/usr/local/go/bin:$PATH"
@@ -154,7 +159,7 @@ fi
 # NPM/Yarn User-installed Packages
 export PATH="$PATH:$HOME/.npm-packages/bin"
 
-# Bloop Complpetion
+# Bloop Completion
 if [ -e "$HOME/.bloop/bash/bloop" ]; then
     . $HOME/.bloop/bash/bloop
 fi

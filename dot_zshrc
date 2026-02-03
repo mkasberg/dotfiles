@@ -159,6 +159,11 @@ if [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+# OpenClaw Completions (if installed)
+if command -v openclaw &> /dev/null; then
+    source <(openclaw completion --shell zsh)
+fi
+
 # Uncomment to print startup profiling.
 # Don't forget to also uncomment the line to begin profiling near the top.
 # zprof
