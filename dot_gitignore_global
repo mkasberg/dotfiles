@@ -19,4 +19,4 @@ metals.sbt
 .DS_Store
 
 # Claude
-/.claude/settings.local.json
+.claude/settings.local.json
