@@ -80,6 +80,19 @@ ZSH_CUSTOM="${HOME}/.zsh_custom"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(docker docker-compose git gh kubectl mise)
 
+# Completions must be processed before sourcing oh-my-zsh!
+
+# Homebrew Linuxbrew
+if [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+# OpenClaw Completions (if installed)
+if command -v openclaw &> /dev/null; then
+    source <(openclaw completion --shell zsh)
+fi
+
+# Source Oh-My-Zsh!
 if [ -d "$ZSH" ]; then
     source $ZSH/oh-my-zsh.sh
 fi
@@ -153,16 +166,6 @@ bw-unlock() {
 
 # Dokku Client CLI
 alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
-
-# Homebrew Linuxbrew
-if [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
-# OpenClaw Completions (if installed)
-if command -v openclaw &> /dev/null; then
-    source <(openclaw completion --shell zsh)
-fi
 
 # Uncomment to print startup profiling.
 # Don't forget to also uncomment the line to begin profiling near the top.
