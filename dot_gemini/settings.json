@@ -3,7 +3,13 @@
   "general": {
     "preferredEditor": "vscode",
     "previewFeatures": true,
-    "disableAutoUpdate": false
+    "disableAutoUpdate": false,
+    "enableAutoUpdate": true,
+    "sessionRetention": {
+      "warningAcknowledged": true,
+      "enabled": true,
+      "maxAge": "120d"
+    }
   },
   "security": {
     "auth": {
@@ -12,6 +18,8 @@
     "enablePermanentToolApproval": true
   },
   "ui": {
-    "theme": "Default"
+    "theme": "Default",
+    "useAlternateBuffer": true,
+    "incrementalRendering": true
   }
 }
