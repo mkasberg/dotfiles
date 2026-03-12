@@ -6,6 +6,7 @@ node = "22.16"
 "npm:tldr" = "latest"
 ruby = "3.3.0"
 usage = "latest"
+uv = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "python", "ruby"]
