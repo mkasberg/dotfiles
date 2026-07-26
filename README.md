@@ -15,7 +15,7 @@ I'm still working on "never search with your eyes", but I'm headed that way 😁
 
 ## Setup dotfiles on a new machine
 
- 1. [Install Chezmoi](https://www.chezmoi.io/docs/install/) to `~/bin` and
+ 1. [Install Chezmoi](https://www.chezmoi.io/install/) to `~/bin` and
     install dotfiles to `~/dotfiles`.
     ```
     sh -c "$(curl -fsLS git.io/chezmoi)" -- -b "$HOME/bin" init --apply -S ~/dotfiles mkasberg
@@ -52,11 +52,10 @@ Want to check the diff before applying changes?
 ## Start Your Own Dotfiles
 
 Want to use Chezmoi to manage your own dotfiles? The best way to get started is
-to follow the [Chezmoi Quick Start
-Guide](https://www.chezmoi.io/docs/quick-start/) to start tracking your first
-dotfile (`~/.bashrc`, `~/.zshrc`, or `~/.gitconfig` are great files to start
-with). Beyond that, I hope you can find some inspiration by looking at my
-dotfiles and copying things you like!
+to follow the [Chezmoi Quick Start Guide](https://www.chezmoi.io/quick-start/)
+to start tracking your first dotfile (`~/.bashrc`, `~/.zshrc`, or `~/.gitconfig`
+are great files to start with). Beyond that, I hope you can find some
+inspiration by looking at my dotfiles and copying things you like!
 
 ## Testing
 
