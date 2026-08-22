@@ -8,13 +8,13 @@ Host *
 {{ end -}}
 
 Host bitbucket.org
- IdentityFile ~/.ssh/id_rsa
+ IdentityFile ~/.ssh/id_ed25519
 
 Host ssh.nyc1.nearlyfreespeech.net
  User {{ .kasm_secrets.ssh.nfs_user }}
- IdentityFile ~/.ssh/id_rsa
+ IdentityFile ~/.ssh/id_ed25519
 
 Host catholicstuffpodcast.com
  User {{ .kasm_secrets.ssh.csysk_user }}
- IdentityFile ~/.ssh/id_rsa
+ IdentityFile ~/.ssh/id_ed25519
 {{ end -}}
