@@ -1,3 +1,3 @@
 {{- if hasKey . "kasm_secrets" -}}
-{{ .kasm_secrets.ssh.id_rsa }}
+{{ .kasm_secrets.ssh.id_ed25519 }}
 {{ end -}}
