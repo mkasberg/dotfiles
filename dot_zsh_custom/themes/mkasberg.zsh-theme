@@ -6,7 +6,7 @@
 # Each function should leave the colors in a clean state (e.g. call reset if they changed any colors).
 
 __mkps1_box_top() {
-    echo "%F{45}╭%f"
+    echo "%F{4}╭%f"
 }
 
 __mkps1_inject_exitcode() {
@@ -24,16 +24,16 @@ __mkps1_exitcode() {
 
 __mkps1_ssh() {
     if [ ! -z "$SSH_TTY" ]; then
-        echo "%K{45}%F{240} SSH %f%k"
+        echo "%K{4}%F{240} SSH %f%k"
     fi
 }
 
 __mkps1_time() {
-    echo "%K{240}%F{7} %* %f%k"
+    echo "%K{7}%F{0} %* %f%k"
 }
 
 __mkps1_username() {
-    echo "%F{45} %n %f"
+    echo "%F{4} %n %f"
 }
 
 __mkps1_arrow() {
@@ -41,7 +41,7 @@ __mkps1_arrow() {
 }
 
 __mkps1_workdir() {
-    echo "%B%F{45}%~%f%b";
+    echo "%B%F{4}%~%f%b";
 }
 
 __mkps1_git() {
@@ -51,7 +51,7 @@ __mkps1_git() {
 }
 
 __mkps1_box_bottom() {
-    echo "%F{45}╰%f"
+    echo "%F{4}╰%f"
 }
 
 __mkps1_user_prompt() {
@@ -60,7 +60,7 @@ __mkps1_user_prompt() {
 
 PROMPT=$'\n'"$(__mkps1_box_top)$(__mkps1_exitcode)$(__mkps1_ssh)$(__mkps1_time)$(__mkps1_username)$(__mkps1_arrow)$(__mkps1_workdir)$(__mkps1_git)"$'\n'"$(__mkps1_box_bottom)$(__mkps1_user_prompt)"
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" %F{25}(%F{213}"
+ZSH_THEME_GIT_PROMPT_PREFIX=" %F{25}(%F{5}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f"
 ZSH_THEME_GIT_PROMPT_DIRTY="%F{25}) %F{yellow}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%F{25})"

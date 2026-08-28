@@ -39,19 +39,29 @@ __mkps1_exitcode() {
     echo "\[${bg_red}${white}\]\$(__mkps1_inject_exitcode \$?)\[${reset}\]"
 }
 
+__mkps1_ssh() {
+    if [ ! -z "$SSH_TTY" ]; then
+        local bg_blue=`tput setab 4`;
+        local dark_gray=`tput setaf 240`;
+        local reset=`tput sgr0`;
+
+        echo "\[${bg_blue}${dark_gray}\] SSH \[${reset}\]"
+    fi
+}
+
 __mkps1_time() {
-    local BG_GRAY=`tput setab 240`;
-    local white=`tput setaf 7`;
+    local bg_white=`tput setab 7`;
+    local black=`tput setaf 0`;
     local reset=`tput sgr0`;
 
-    echo "\[${BG_GRAY}${white}\] \t \[${reset}\]"
+    echo "\[${bg_white}${black}\] \t \[${reset}\]"
 }
 
 __mkps1_username() {
-    local cyan=`tput setaf 45`;
+    local blue=`tput setaf 4`;
     local reset=`tput sgr0`;
 
-    echo "\[${cyan}\] \u \[${reset}\]";
+    echo "\[${blue}\] \u \[${reset}\]";
 }
 
 __mkps1_arrows() {
@@ -65,31 +75,32 @@ __mkps1_arrows() {
 
 __mkps1_workdir() {
     local bold=`tput bold`;
-    local cyan=`tput setaf 45`;
+    local blue=`tput setaf 4`;
     local reset=`tput sgr0`;
 
-    echo "\[${bold}${cyan}\]\w\[${reset}\]";
+    echo "\[${bold}${blue}\]\w\[${reset}\]";
 }
 
 __mkps1_git() {
-    local magenta=`tput setaf 213`;
+    local blue=`tput setaf 25`;
+    local magenta=`tput setaf 5`;
     local reset=`tput sgr0`;
 
     # Escaping the $ is intentional:
     # This is evaluated when the prompt is generated.
-    echo "\$(__git_ps1 ' (\[${magenta}\]%s\[${reset}\])')"
+    echo "\$(__git_ps1 ' \[${blue}\](\[${magenta}\]%s\[${blue}\])\[${reset}\]')"
 }
 
 __mkps1_box_top() {
-    local cyan=`tput setaf 45`;
+    local blue=`tput setaf 4`;
     local reset=`tput sgr0`;
-    echo "\[${cyan}\]╭\[${reset}\]"
+    echo "\[${blue}\]╭\[${reset}\]"
 }
 
 __mkps1_box_bottom() {
-    local cyan=`tput setaf 45`;
+    local blue=`tput setaf 4`;
     local reset=`tput sgr0`;
-    echo "\[${cyan}\]╰\[${reset}\]"
+    echo "\[${blue}\]╰\[${reset}\]"
 }
 
 
@@ -101,7 +112,7 @@ __mkps1_user_prompt() {
 }
 
 __mkps1() {
-    local ps1="\n$(__mkps1_box_top)$(__mkps1_debian_chroot)$(__mkps1_exitcode)$(__mkps1_time)$(__mkps1_username)$(__mkps1_arrows) $(__mkps1_workdir)$(__mkps1_git)\n$(__mkps1_box_bottom)$(__mkps1_user_prompt)";
+    local ps1="\n$(__mkps1_box_top)$(__mkps1_debian_chroot)$(__mkps1_exitcode)$(__mkps1_ssh)$(__mkps1_time)$(__mkps1_username)$(__mkps1_arrows) $(__mkps1_workdir)$(__mkps1_git)\n$(__mkps1_box_bottom)$(__mkps1_user_prompt)";
 
     echo "$ps1";
 }
