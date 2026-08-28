@@ -35,6 +35,9 @@
 	all = true
 [rebase]
 	stat = true
+	autoStash = true
+[rerere]
+	enabled = true
 [branch]
 	sort = -committerdate
 	autosetuprebase = always
@@ -52,13 +55,10 @@
 	show-next = rev-list origin/master ^origin/master.rc --pretty
 	type = cat-file -t
 	dump = cat-file -p
-
 [commit]
 	template = ~/.gittemplate
 [pull]
 	rebase = true
 [init]
 	defaultBranch = main
-[rebase]
-	autoStash = true
 {{ end -}}
