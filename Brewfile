@@ -1,3 +1,4 @@
+cask "1password-cli"
 cask "balenaetcher"
 cask "docker-desktop"
 cask "firefox"
