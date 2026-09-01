@@ -10,7 +10,7 @@ syntax on
 set softtabstop=4 shiftwidth=4 expandtab
 
 " Use colors for a dark terminal background
-set background=dark
+" set background=dark
 
 " Search settings. Highlight and incremental.
 set hlsearch
