@@ -1,6 +1,6 @@
 [tools]
-opencode = "latest"
 node = "22.16"
+opencode = { version = "latest", lazy = true, auto_update = "4h", minimum_release_age = "1d" }
 tlrc = "latest"
 ruby = "3.3.0"
 usage = "latest"
@@ -8,3 +8,5 @@ uv = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["go", "node", "python", "ruby"]
+
+[settings.upgrade]
