@@ -29,7 +29,7 @@ fi
 
 # GH CLI Repo
 # https://github.com/cli/cli/blob/trunk/docs/install_linux.md
-if [ ! -f /ect/apt/sources.list.d/github-cli.list ]; then
+if [ ! -f /etc/apt/sources.list.d/github-cli.list ]; then
 	mkdir -p -m 755 /etc/apt/keyrings
 	out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg
 	cat $out | tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null

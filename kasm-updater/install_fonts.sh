@@ -21,7 +21,9 @@ ensure_font() {
   fi
 }
 
-if [[ ! "$(uname -s)" == "Darwin" ]]; then
+# Skipped on macOS, and on Omarchy, which installs fonts as Arch packages in
+# install_omarchy_applications.sh.
+if [[ ! "$(uname -s)" == "Darwin" ]] && ! command -v omarchy &> /dev/null; then
   echo "Installing Fonts..."
   mkdir -p ~/.local/share/fonts
   ensure_font "JetBrainsMono Nerd Font" "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip" "ttf"

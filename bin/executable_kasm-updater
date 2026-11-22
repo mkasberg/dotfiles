@@ -11,12 +11,11 @@ else
   if command -v apt &> /dev/null; then
     # Don't source this one - it escalates with sudo and we want to isolate that.
     bash "$SCRIPT_DIR/../kasm-updater/install_ubuntu_applications.sh"
-  elif command -v pacman &> /dev/null; then
-    # Don't source this one - it escalates with sudo and we want to isolate that.
-    bash "$SCRIPT_DIR/../kasm-updater/install_arch_pacman_applications.sh"
-    source "$SCRIPT_DIR/../kasm-updater/install_arch_yay_applications.sh"
+  elif command -v omarchy &> /dev/null; then
+    bash "$SCRIPT_DIR/../kasm-updater/install_omarchy_applications.sh"
+    bash "$SCRIPT_DIR/../kasm-updater/install_omarchy_defaults.sh"
   else
-    echo "Unsupported Linux distribution. Neither apt nor pacman detected."
+    echo "Unsupported Linux distribution. Neither apt nor omarchy detected."
     exit 1
   fi
 fi

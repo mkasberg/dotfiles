@@ -8,9 +8,9 @@ DOCKERFILE="Dockerfile"
 IMAGE_NAME="dotfiles-test:latest"
 USERNAME="ubuntu"
 
-if [[ "$1" == "--arch" ]]; then
-  DOCKERFILE="Dockerfile.arch"
-  IMAGE_NAME="dotfiles-test:arch"
+if [[ "$1" == "--omarchy" ]]; then
+  DOCKERFILE="Dockerfile.omarchy"
+  IMAGE_NAME="dotfiles-test:omarchy"
   USERNAME="dev"
 fi
 

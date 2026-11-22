@@ -1,0 +1,3 @@
+# Files chezmoi used to manage, removed from the home directory on apply.
+kasm-updater/install_arch_pacman_applications.sh
+kasm-updater/install_arch_yay_applications.sh

@@ -2,6 +2,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Omarchy environment (OMARCHY_PATH + PATH), needed even for non-interactive shells
+if [ -r /usr/share/omarchy/default/bash/env-bootstrap ]; then
+    . /usr/share/omarchy/default/bash/env-bootstrap
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -167,4 +172,34 @@ fi
 # Homebrew Linuxbrew
 if [ -d "/home/linuxbrew/.linuxbrew/bin" ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+# Omarchy shell setup: the same as $OMARCHY_PATH/default/bash/rc, except for
+# init, which would replace the mkps1 prompt with starship. Its other tools are
+# set up below instead (mise is already activated above).
+if command -v omarchy &> /dev/null; then
+    omarchy_bash="${OMARCHY_PATH:-/usr/share/omarchy}/default/bash"
+    source "$omarchy_bash/envs"
+    source "$omarchy_bash/shell"
+    source "$omarchy_bash/aliases"
+    source "$omarchy_bash/functions"
+    source "$omarchy_bash/completions"
+    bind -f "$omarchy_bash/inputrc"
+    unset omarchy_bash
+
+    if command -v zoxide &> /dev/null; then
+        eval "$(zoxide init bash)"
+    fi
+
+    if command -v try &> /dev/null; then
+        try() {
+            unset -f try
+            eval "$(SHELL=/bin/bash command try init ~/Work/tries)"
+            try "$@"
+        }
+    fi
+
+    if [ -f /usr/share/fzf/key-bindings.bash ]; then
+        source /usr/share/fzf/key-bindings.bash
+    fi
 fi

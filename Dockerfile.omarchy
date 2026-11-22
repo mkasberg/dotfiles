@@ -1,0 +1,48 @@
+FROM archlinux:latest
+
+ARG USERNAME=dev
+
+# Omarchy's package signing key (from /usr/share/pacman/keyrings/omarchy-trusted
+# on an Omarchy machine).
+ARG OMARCHY_KEY=40DFB630FF42BCFFB047046CF0134EE680CAC571
+
+ENV TZ=America/Denver
+RUN ln -sf /usr/share/zoneinfo/$TZ /etc/localtime
+
+# Add the Omarchy package repo, before core like on a real Omarchy install.
+RUN pacman-key --init \
+    && pacman-key --populate archlinux \
+    && pacman-key --keyserver hkps://keyserver.ubuntu.com --recv-keys $OMARCHY_KEY \
+    && pacman-key --lsign-key $OMARCHY_KEY \
+    && sed -i 's|^\[core\]|[omarchy]\nServer = https://pkgs.omarchy.org/stable/$arch\n\n[core]|' /etc/pacman.conf
+
+# Install the omarchy CLI and Omarchy's shell defaults, but not the desktop.
+# --nodeps --nodeps (-dd) skips the omarchy package's desktop dependencies
+# (Hyprland, SDDM, Limine, ...), which a container can't use.
+RUN pacman -Syu --noconfirm && \
+    pacman -S --noconfirm \
+        ca-certificates \
+        curl \
+        dialog \
+        eza \
+        fzf \
+        git \
+        ncurses \
+        omarchy-keyring \
+        omarchy-settings \
+        sudo \
+        wget \
+        zoxide \
+        zsh \
+    && pacman -Sdd --noconfirm omarchy \
+    && echo "$USERNAME ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME \
+    && pacman -Scc --noconfirm
+
+ENV TERM=xterm-256color
+ENV PATH="/home/$USERNAME/bin:$PATH"
+
+# Create user and switch to it
+RUN useradd -m -s /bin/zsh $USERNAME
+USER $USERNAME
+WORKDIR /home/$USERNAME

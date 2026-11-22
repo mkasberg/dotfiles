@@ -1,5 +1,5 @@
 [tools]
-node = "22.16"
+node = { version = "latest", lazy = true, minimum_release_age = "0s" }
 opencode = { version = "latest", lazy = true, auto_update = "4h", minimum_release_age = "1d" }
 tlrc = "latest"
 ruby = "3.3.0"
