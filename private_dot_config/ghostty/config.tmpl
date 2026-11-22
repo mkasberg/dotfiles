@@ -1,56 +1,64 @@
-# This is the configuration file for Ghostty.
-#
-# This template file has been automatically created at the following
-# path since Ghostty couldn't find any existing config files on your system:
-#
-#   ~/.config/ghostty/config
-#
-# The template does not set any default options, since Ghostty ships
-# with sensible defaults for all options. Users should only need to set
-# options that they want to change from the default.
-#
-# Run `ghostty +show-config --default --docs` to view a list of
-# all available config options and their default values.
-#
-# Additionally, each config option is also explained in detail
-# on Ghostty's website, at https://ghostty.org/docs/config.
-
-# Config syntax crash course
-# ==========================
-# # The config file consists of simple key-value pairs,
-# # separated by equals signs.
-# font-family = Iosevka
-# window-padding-x = 2
-#
-# # Spacing around the equals sign does not matter.
-# # All of these are identical:
-# key=value
-# key= value
-# key =value
-# key = value
-#
-# # Any line beginning with a # is a comment. It's not possible to put
-# # a comment after a config option, since it would be interpreted as a
-# # part of the value. For example, this will have a value of "#123abc":
-# background = #123abc
-#
-# # Empty values are used to reset config keys to default.
-# key =
-#
-# # Some config options have unique syntaxes for their value,
-# # which is explained in the docs for that config option.
-# # Just for example:
-# resize-overlay-duration = 4s 200ms
-
-window-width = 140
-window-height = 40
+{{- $omarchy := stat "/usr/share/omarchy" -}}
+# Ghostty config. See `ghostty +show-config --default --docs` or
+# https://ghostty.org/docs/config for all options.
 
 # Disable font ligatures
 font-feature = -calt, -liga, -dlig
 
-theme = TokyoNight Day
+{{ if $omarchy -}}
+# --- Omarchy ---
+# Based on Omarchy's default: /usr/share/omarchy/config/ghostty/config
+# (re-sync by hand if Omarchy changes its defaults).
 
-{{ if ne .chezmoi.os "darwin" -}}
+# Dynamic theme colors (follows `omarchy theme set`)
+config-file = ?"~/.local/state/omarchy/current/theme/ghostty.conf"
+
+# Font
+font-family = Ubuntu Mono
+font-style = Regular
+font-size = 13
+
+# Window
+window-theme = ghostty
+window-padding-x = 14
+window-padding-y = 14
+confirm-close-surface=false
+resize-overlay = never
+gtk-toolbar-style = flat
+
+# Cursor styling
+cursor-style = "block"
+cursor-style-blink = false
+
+# Cursor styling + SSH session terminfo
+# (all shell integration options must be passed together)
+shell-integration-features = no-cursor,ssh-env
+
+# Keyboard bindings
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=copy_to_clipboard
+# Send Shift+Enter as CSI-u so TUIs can distinguish it from Enter.
+keybind = shift+enter=csi:13;2u
+# Legacy encoding sends Alt+Shift+Enter the same as Alt+Enter; send CSI-u so tmux can match M-S-Enter.
+keybind = alt+shift+enter=csi:13;4u
+keybind = super+control+shift+alt+arrow_down=resize_split:down,100
+keybind = super+control+shift+alt+arrow_up=resize_split:up,100
+keybind = super+control+shift+alt+arrow_left=resize_split:left,100
+keybind = super+control+shift+alt+arrow_right=resize_split:right,100
+
+# Slowdown mouse scrolling
+mouse-scroll-multiplier = 0.95
+
+# Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
+async-backend = epoll
+{{- else -}}
+window-width = 140
+window-height = 40
+
+theme = TokyoNight Day
+{{- if ne .chezmoi.os "darwin" }}
+
 font-family = Ubuntu Mono
 font-size = 13
-{{ end -}}
+{{- end }}
+{{- end }}
