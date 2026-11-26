@@ -15,7 +15,7 @@ time=$(date +%H:%M:%S)
 username=$(whoami)
 
 # Display directory with ~ for home
-display_dir="${cwd/#$HOME/~}"
+display_dir="${cwd/#$HOME/\~}"
 
 # Git information
 git_info=""
